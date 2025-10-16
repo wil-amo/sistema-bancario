@@ -1,7 +1,23 @@
 ### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Compiled class files
+*.class
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
 
 ### Eclipse ###
 .apt_generated
