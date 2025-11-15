@@ -9,7 +9,16 @@ public class Main {
         Banco banco = new Banco();
         Sessao sessao = new Sessao();
 
-        Cliente cliente2 = new Cliente("123454678910", "Elton", "Elton-Elton", "suaSenha","Elton@gmail.com");
+        Cliente cliente1 = new Cliente("123454678910", "cesar", "cesar", "1234","cesar@gmail.com");
+        Conta conta1 = new ContaCorrente(cliente1);
+
+        banco.adicionarCliente(cliente1);
+        banco.adicionarConta(conta1);
+        sessao.registrarNovoCliente(cliente1);
+        sessao.buscarClientePorLogin(cliente1.getLogin());
+
+
+        Cliente cliente2 = new Cliente("0987654321", "elton", "elton", "1234","Elton@gmail.com");
         Conta conta2 = new ContaCorrente(cliente2);
 
         banco.adicionarCliente(cliente2);
@@ -21,25 +30,25 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Bem-vindo ao sistema bancário!");
 
         // cria cliente
-        String cpf = JOptionPane.showInputDialog("Digite o CPF:");
-        String nome = JOptionPane.showInputDialog("Digite o nome:");
-        String login = JOptionPane.showInputDialog("Digite o login:");
-        String senha = JOptionPane.showInputDialog("Digite a senha:");
-        String email = JOptionPane.showInputDialog("Digite o e-mail:");
-
-        Cliente cliente = new Cliente(cpf, nome, login, senha, email);
-        Conta conta = new ContaCorrente(cliente);
-
-        banco.adicionarCliente(cliente);
-        banco.adicionarConta(conta);
-
-
-
-        sessao.buscarClientePorLogin("w");
-        sessao.registrarNovoCliente(cliente);
-
-
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!\n" + banco.listarContas());
+//        String cpf = JOptionPane.showInputDialog("Digite o CPF:");
+//        String nome = JOptionPane.showInputDialog("Digite o nome:");
+//        String login = JOptionPane.showInputDialog("Digite o login:");
+//        String senha = JOptionPane.showInputDialog("Digite a senha:");
+//        String email = JOptionPane.showInputDialog("Digite o e-mail:");
+//
+//        Cliente cliente = new Cliente(cpf, nome, login, senha, email);
+//        Conta conta = new ContaCorrente(cliente);
+//
+//        banco.adicionarCliente(cliente);
+//        banco.adicionarConta(conta);
+//
+//
+//
+//        sessao.buscarClientePorLogin("w");
+//        sessao.registrarNovoCliente(cliente);
+//
+//
+//                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!\n" + banco.listarContas());
 
                 // Login do cliente
                 String loginTentativa = JOptionPane.showInputDialog("Login para acesso:");

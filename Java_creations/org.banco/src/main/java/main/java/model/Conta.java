@@ -4,7 +4,11 @@ package main.java.model;
 public abstract class Conta implements Iconta {
     private static final int AGENCIA_PADRAO = 1272;
     private static int SEQUENCIAL = 1000;
+    private static final double TAXA_SAQUE = 0.05; //5%
+    private static final double TAXA_TRANSFERENCIA = 0.01; //1%
+
     private final Cliente cliente;
+    private int totalSaques;
 
     public Conta(main.java.model.Cliente cliente) {
         this.agencia = AGENCIA_PADRAO;
@@ -31,7 +35,7 @@ public abstract class Conta implements Iconta {
         return saldo;
     }
 
-//Ideal realizar a validação nos campos
+    //Ideal realizar a validação nos campos
     protected int agencia;
     protected int numero;
     protected double saldo;
@@ -40,10 +44,12 @@ public abstract class Conta implements Iconta {
         if (valor <= 0) {
             throw new IllegalArgumentException("O valor do depósito deve ser positivo.");
         }
+
         this.saldo += valor;
     }
 
     public void saque(double valor) {
+        aplicarTaxaSaque(valor);
         if (valor <= 0) {
             throw new IllegalArgumentException("O valor do saque deve ser positivo.");
         }
@@ -51,13 +57,14 @@ public abstract class Conta implements Iconta {
             throw new IllegalStateException("Saldo insuficiente para realizar o saque.");
         }
         this.saldo -= valor;
+        totalSaques++;
     }
 
     public void transferencia(double valor, Conta destino) {
+        aplicarTaxaTransferencia(valor);
         if (destino == null) {
             throw new IllegalArgumentException("Conta de destino não pode ser nula.");
         }
-
         this.saque(valor);
         destino.deposito(valor);
     }
@@ -68,6 +75,23 @@ public abstract class Conta implements Iconta {
         System.out.println("numero : " + this.numero);
         System.out.printf("saldo : %.2f%n", this.saldo); // mantém o formato para casas decimais
     }
+
+
+    public void aplicarTaxaSaque(double valorSaque){
+        if(totalSaques > 3){
+            double taxa = valorSaque * TAXA_SAQUE;
+            this.saldo -= taxa;
+
+        }
+    }
+
+    public void aplicarTaxaTransferencia(double valorSaque){
+        if(totalSaques > 6){
+            double taxa = valorSaque * TAXA_TRANSFERENCIA;
+            this.saldo -= taxa;
+        }
+    }
+
 
 }
 

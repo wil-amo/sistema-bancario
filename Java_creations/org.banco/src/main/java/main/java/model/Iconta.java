@@ -7,7 +7,8 @@ public interface Iconta {
 
     void transferencia(double valor,Conta destino);
     void imprimirExtrato();
-
+    void aplicarTaxaSaque(double valor);
+    void aplicarTaxaTransferencia(double valor);
 
 
 

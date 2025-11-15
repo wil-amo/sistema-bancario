@@ -17,7 +17,7 @@ public final class EmailUtil {
     //Ideal salvar em credenciais e fazer referência
     public static void enviarCodigo(String destinatario, String codigo) {
         final String remetente = "seu-email@gmail.com";
-        final String senha = "SENHA-APP"; // 🔐 Substitua por senha de app válida
+        final String senha = "SENHA-APP"; // Substitua por senha de app válida
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

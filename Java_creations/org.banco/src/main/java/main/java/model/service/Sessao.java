@@ -187,20 +187,20 @@ public class Sessao {
             return;
         }
 
-        String codigo = gerarCodigoVerificacao();
-        cliente.setCodigoVerificacao(HashUtil.gerarHash(codigo));
-        EmailUtil.enviarCodigo(cliente.getEmail(), codigo);
+//        String codigo = gerarCodigoVerificacao();
+//        cliente.setCodigoVerificacao(HashUtil.gerarHash(codigo));
+//        EmailUtil.enviarCodigo(cliente.getEmail(), codigo);
 
-        String codigoDigitado = JOptionPane.showInputDialog("Digite o código recebido por e-mail:");
-        if (codigoDigitado == null || codigoDigitado.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Código não informado. Login cancelado.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+//        String codigoDigitado = JOptionPane.showInputDialog("Digite o código recebido por e-mail:");
+//        if (codigoDigitado == null || codigoDigitado.trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Código não informado. Login cancelado.", "Erro", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
 
-        if (!HashUtil.gerarHash(codigoDigitado).equals(cliente.getCodigoVerificacao())) {
-            JOptionPane.showMessageDialog(null, "Código incorreto. Login não registrado.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+//        if (!HashUtil.gerarHash(codigoDigitado).equals(cliente.getCodigoVerificacao())) {
+//            JOptionPane.showMessageDialog(null, "Código incorreto. Login não registrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
 
         clienteLogado = cliente;
         registrarLogin();
@@ -237,15 +237,15 @@ public class Sessao {
         }
     }
 
-    public String gerarCodigoVerificacao() {
-        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        StringBuilder codigo = new StringBuilder();
-        for (int i = 0; i < 6; i++) {
-            int index = (int) (Math.random() * caracteres.length());
-            codigo.append(caracteres.charAt(index));
-        }
-        return codigo.toString();
-    }
+//    public String gerarCodigoVerificacao() {
+//        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+//        StringBuilder codigo = new StringBuilder();
+//        for (int i = 0; i < 6; i++) {
+//            int index = (int) (Math.random() * caracteres.length());
+//            codigo.append(caracteres.charAt(index));
+//        }
+//        return codigo.toString();
+//    }
 
 
 
