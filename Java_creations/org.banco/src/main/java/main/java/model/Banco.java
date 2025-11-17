@@ -101,9 +101,15 @@ public class Banco {
         return vinculados;
     }
 
-
-
-
+    //ordemDecrescente
+    public List<String> top3Saldos() {
+        List<Conta> copiaContas = new ArrayList<>(contas);
+        return copiaContas.stream()//olha tos itens da lista
+                .sorted(Comparator.comparing(Conta::getSaldo).reversed())//normal seria crescente
+                .limit(3)
+                .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
+                .collect(Collectors.toList());//organiza tudo em uma list
+    }
 
 
 

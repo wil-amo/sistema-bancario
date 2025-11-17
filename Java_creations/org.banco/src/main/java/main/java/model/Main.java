@@ -52,6 +52,8 @@ public class Main {
         sessao.registrarNovoCliente(cliente5);
 
 
+        i(banco.top3Saldos());
+
 
 
 
