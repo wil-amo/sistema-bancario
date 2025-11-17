@@ -1,7 +1,9 @@
 package main.java.model;
 
 
-public abstract class Conta implements Iconta {
+import java.util.Objects;
+
+public abstract class Conta implements Iconta,Comparable<Conta> {
     private static final int AGENCIA_PADRAO = 1272;
     private static int SEQUENCIAL = 1000;
     private static final double TAXA_SAQUE = 0.05; //5%
@@ -91,7 +93,21 @@ public abstract class Conta implements Iconta {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return totalSaques == conta.totalSaques
+                && agencia == conta.agencia
+                && numero == conta.numero
+                && Double.compare(saldo, conta.saldo) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalSaques, agencia, numero, saldo);
+    }
 }
 
 

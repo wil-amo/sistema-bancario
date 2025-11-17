@@ -2,7 +2,9 @@ package main.java.model;
 
 import main.java.model.infra.HashUtil;
 
-public class Cliente {
+import java.util.Objects;
+
+public class Cliente implements Comparable<Cliente> {
     private String  nome;
     private final String login;
 
@@ -69,6 +71,29 @@ public class Cliente {
     @Override
     public String toString() {
         return String.format("Cliente: %s | CPF: %s | Login: %s | Número Conta: %d", nome, CPF, login, conta.getNumero());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(nome, cliente.nome)
+                && Objects.equals(login, cliente.login)
+                && Objects.equals(senhaHash, cliente.senhaHash)
+                && Objects.equals(CPF, cliente.CPF)
+                && Objects.equals(email, cliente.email)
+                && Objects.equals(codigoVerificacao, cliente.codigoVerificacao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, login, senhaHash, CPF, email, codigoVerificacao);
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        return 0;
     }
 }
 

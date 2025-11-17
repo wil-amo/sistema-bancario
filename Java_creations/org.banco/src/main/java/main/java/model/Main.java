@@ -2,9 +2,10 @@ package main.java.model;
 
 import main.java.model.service.Sessao;
 
-import javax.swing.*;
+
 
 import static main.java.model.infra.Exception.esperar;
+import static main.java.model.infra.Exception.i;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -28,21 +29,34 @@ public class Main {
         banco.vincularConta(cliente2,conta2);
         sessao.registrarNovoCliente(cliente2);
 
-        System.out.println(banco.contaEClienteVinculado());
+        Cliente cliente3 = new Cliente("0987654321", "Teo", "Teo", "1234","Teo@gmail.com");
+        Conta conta3 = new ContaCorrente(cliente3);
+        banco.adicionarCliente(cliente3);
+        banco.adicionarConta(conta3);
+        banco.vincularConta(cliente3,conta3);
+        sessao.registrarNovoCliente(cliente3);
 
-        System.out.println(conta1.getSaldo());
-        conta1.saque(1000);
-        conta1.saque(1000);
-        conta1.saque(1000);
-        esperar(1000);
 
-        System.out.println(conta1.getSaldo());
-        esperar(1000);
+        Cliente cliente4 = new Cliente("0987654321", "Jorge", "Jorge", "1234","Jorge@gmail.com");
+        Conta conta4= new ContaCorrente(cliente4);
+        banco.adicionarCliente(cliente4);
+        banco.adicionarConta(conta4);
+        banco.vincularConta(cliente4,conta4);
+        sessao.registrarNovoCliente(cliente4);
 
-        conta1.saque(1000);
-        esperar(1000);
+        Cliente cliente5 = new Cliente("0987654321", "Ana", "Ana", "1234","Ana@gmail.com");
+        Conta conta5 = new ContaCorrente(cliente5);
+        banco.adicionarCliente(cliente5);
+        banco.adicionarConta(conta5);
+        banco.vincularConta(cliente5,conta5);
+        sessao.registrarNovoCliente(cliente5);
 
-        System.out.println(conta1.getSaldo());
+
+
+
+
+
+
 
 
 

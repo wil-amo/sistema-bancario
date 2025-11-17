@@ -6,4 +6,11 @@ public class Exception {
         Thread.sleep(milissegundos);
     }
 
+
+    //facilitar impressão
+    public static void i(Object msg) {
+        System.out.println(msg);
+    }
+
+
 }

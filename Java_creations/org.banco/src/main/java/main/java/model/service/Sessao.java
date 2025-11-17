@@ -168,16 +168,14 @@ public class Sessao {
 //    }
 
 
-//    public void loginClienteGUI(String login, String senha) {
+//    public void loginCliente(String login, String senha) {
 //        if (!autenticar(login, senha)) {
-//            JOptionPane.showMessageDialog(null, "Login ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
-//            return;
+//            System.out.println("Login ou senha incorretos.");
 //        }
-
+//
 //        Cliente cliente = buscarClientePorLogin(login);
 //        if (cliente == null || !EmailUtil.emailValido(cliente.getEmail())) {
-//            JOptionPane.showMessageDialog(null, "E-mail inválido ou cliente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
-//            return;
+//            System.out.println("E-mail inválido ou cliente não encontrado");
 //        }
 
 //        String codigo = gerarCodigoVerificacao();
@@ -186,38 +184,34 @@ public class Sessao {
 
 //        String codigoDigitado = JOptionPane.showInputDialog("Digite o código recebido por e-mail:");
 //        if (codigoDigitado == null || codigoDigitado.trim().isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Código não informado. Login cancelado.", "Erro", JOptionPane.ERROR_MESSAGE);
-//            return;
+//            System.out.println("Código não informado. Login cancelado");
 //        }
 
 //        if (!HashUtil.gerarHash(codigoDigitado).equals(cliente.getCodigoVerificacao())) {
-//            JOptionPane.showMessageDialog(null, "Código incorreto. Login não registrado.", "Erro", JOptionPane.ERROR_MESSAGE);
-//            return;
+//             System.out.println("Código incorreto. Login não registrado.");
 //        }
 
 //        clienteLogado = cliente;
 //        registrarLogin();
-//        JOptionPane.showMessageDialog(null, "Login registrado com sucesso.");
+//         System.out.println("Login registrado com sucesso.");
 //
 //        Conta conta = cliente.getConta();
 //        if (conta == null) {
 //            conta = new ContaCorrente(cliente);
 //            cliente.setConta(conta);
 //        }
-//
-//        abrirMenuBancario(conta);
+//        }
+
+
+
+//    public void logout() {
+//        if (clienteLogado != null) {
+//            registrarLogout(clienteLogado);
+//            System.out.println("Logout realizado com sucesso para " + clienteLogado.getLogin());
+//        } else {
+//            System.out.println("Nenhum usuário está logado no momento.");
+//        }
 //    }
-
-
-    public void logout() {
-        if (clienteLogado != null) {
-            registrarLogout(clienteLogado);
-            JOptionPane.showMessageDialog(null, "Logout realizado com sucesso para " + clienteLogado.getLogin());
-            clienteLogado = null;
-        } else {
-            JOptionPane.showMessageDialog(null, "Nenhum usuário está logado no momento.");
-        }
-    }
 
 
     private void registrarLogout(Cliente cliente) {

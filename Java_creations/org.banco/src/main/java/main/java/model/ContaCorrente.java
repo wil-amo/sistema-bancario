@@ -20,4 +20,8 @@ public class ContaCorrente extends main.java.model.Conta {
                 super.getCliente().getNome(), super.getAgencia(), super.getNumero(), super.getSaldo());
     }
 
+    @Override
+    public int compareTo(Conta o) {
+        return 0;
+    }
 }

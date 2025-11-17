@@ -1,6 +1,7 @@
 package main.java.model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Banco {
     private static final String NOME = "Banco do Povo";
@@ -99,6 +100,11 @@ public class Banco {
         }
         return vinculados;
     }
+
+
+
+
+
 
 
     public Cliente buscarClientePorCpf(String cpf) {
