@@ -70,9 +70,6 @@ public class Cliente {
     public String toString() {
         return String.format("Cliente: %s | CPF: %s | Login: %s | Número Conta: %d", nome, CPF, login, conta.getNumero());
     }
-
-
-
 }
 
 

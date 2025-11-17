@@ -13,6 +13,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Sessao {
     private Cliente clienteLogado;
@@ -90,102 +93,92 @@ public class Sessao {
         }
     }
 
-    private void abrirMenuBancario(Conta conta) {
-        while (true) {
-            String[] opcoes = {"Ver saldo", "Depositar", "Sacar", "AINDA EM TESTES ###Transferir#####", "Sair"};
-            int escolha = JOptionPane.showOptionDialog(
-                    null,
-                    "Escolha uma operação:",
-                    "Menu Bancário",
-                    JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.INFORMATION_MESSAGE,
-                    null,
-                    opcoes,
-                    opcoes[0]
-            );
-
-            switch (escolha) {
-                case 0:
-                    JOptionPane.showMessageDialog(null,
-                            String.format("Saldo atual: R$ %.2f", conta.getSaldo()));
-                    break;
-
-                case 1:
-                    String valorDepositoStr = JOptionPane.showInputDialog("Digite o valor para depósito:");
-                    if (valorDepositoStr == null || valorDepositoStr.trim().isEmpty()) break;
-                    try {
-                        double valorDeposito = Double.parseDouble(valorDepositoStr);
-                        conta.deposito(valorDeposito);
-                        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso.");
-                    } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "Valor inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
-                    } catch (IllegalArgumentException e) {
-                        JOptionPane.showMessageDialog(null, "fora do esperado" + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                    }
-                    break;
-
-                case 2:
-                    String valorSaqueStr = JOptionPane.showInputDialog("Digite o valor para saque:");
-                    if (valorSaqueStr == null || valorSaqueStr.trim().isEmpty()) break;
-                    try {
-                        double valorSaque = Double.parseDouble(valorSaqueStr);
-                        conta.saque(valorSaque);
-                        JOptionPane.showMessageDialog(null, "Saque realizado com sucesso.");
-                    } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "Valor inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
-                    } catch (IllegalArgumentException | IllegalStateException e) {
-                        JOptionPane.showMessageDialog(null, "fora do esperado" + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                    }
-                    break;
-
-                case 3: // Transferir
-                    String valorTransfStr = JOptionPane.showInputDialog("Valor para transferir:");
-                    String loginDestino = JOptionPane.showInputDialog("Login do destinatário:");
-                    if (valorTransfStr == null || loginDestino == null) break;
-
-                    try {
-                        double valorTransf = Double.parseDouble(valorTransfStr);
-
-                        //busca conta por login
-                        Cliente destino = buscarClientePorLogin(loginDestino);
-
-                        if (destino == null || destino.getConta() == null) {
-                            JOptionPane.showMessageDialog(null, "Conta de destino inválida.");
-                            break;
-                        }
-
-                        conta.transferencia(valorTransf, destino.getConta());
-                        JOptionPane.showMessageDialog(null, "Transferência realizada com sucesso.");
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
-                    }
-                    break;
-
-
-
-                case 4:
-                    JOptionPane.showMessageDialog(null, "Encerrando sessão...");
-                    logout();
-                    return;
-
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
+//    private void abrirMenuBancario(Conta conta) {
+//        Scanner scan = new Scanner(System.in);
+//        while (true) {
+//            System.out.println("1 - Ver saldo\", \"2 - Depositar\", \"3 - Sacar\", \"4 - AINDA EM TESTES ###Transferir#####\", \"5 - Sair\"");
+//            int escolha = scan.nextInt();
+//            switch (escolha) {
+//                case 1:
+//                    System.out.println(String.format("Saldo atual: R$ %.2f", conta.getSaldo()));
+//                    break;
+//
+//                case 2:
+//                    String valorDepositoStr = JOptionPane.showInputDialog("Digite o valor para depósito:");
+//                    if (valorDepositoStr == null || valorDepositoStr.trim().isEmpty()) break;
+//                    try {
+//                        double valorDeposito = Double.parseDouble(valorDepositoStr);
+//                        conta.deposito(valorDeposito);
+//                        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso.");
+//                    } catch (NumberFormatException e) {
+//                        JOptionPane.showMessageDialog(null, "Valor inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
+//                    } catch (IllegalArgumentException e) {
+//                        JOptionPane.showMessageDialog(null, "fora do esperado" + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+//                    }
+//                    break;
+//
+//                case 3:
+//                    String valorSaqueStr = JOptionPane.showInputDialog("Digite o valor para saque:");
+//                    if (valorSaqueStr == null || valorSaqueStr.trim().isEmpty()) break;
+//                    try {
+//                        double valorSaque = Double.parseDouble(valorSaqueStr);
+//                        conta.saque(valorSaque);
+//                        JOptionPane.showMessageDialog(null, "Saque realizado com sucesso.");
+//                    } catch (NumberFormatException e) {
+//                        JOptionPane.showMessageDialog(null, "Valor inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
+//                    } catch (IllegalArgumentException | IllegalStateException e) {
+//                        JOptionPane.showMessageDialog(null, "fora do esperado" + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+//                    }
+//                    break;
+//
+//                case 4: // Transferir
+//                    String valorTransfStr = JOptionPane.showInputDialog("Valor para transferir:");
+//                    String loginDestino = JOptionPane.showInputDialog("Login do destinatário:");
+//                    if (valorTransfStr == null || loginDestino == null) break;
+//
+//                    try {
+//                        double valorTransf = Double.parseDouble(valorTransfStr);
+//
+//                        //busca conta por login
+//                        Cliente destino = buscarClientePorLogin(loginDestino);
+//
+//                        if (destino == null || destino.getConta() == null) {
+//                            JOptionPane.showMessageDialog(null, "Conta de destino inválida.");
+//                            break;
+//                        }
+//
+//                        conta.transferencia(valorTransf, destino.getConta());
+//                        JOptionPane.showMessageDialog(null, "Transferência realizada com sucesso.");
+//                    } catch (Exception e) {
+//                        JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+//                    }
+//                    break;
+//
+//
+//
+//                case 5:
+//                    JOptionPane.showMessageDialog(null, "Encerrando sessão...");
+//                    logout();
+//                    return;
+//
+//                default:
+//                    JOptionPane.showMessageDialog(null, "Opção inválida.", "Erro", JOptionPane.ERROR_MESSAGE);
+//            }
+//        }
+//    }
 
 
-    public void loginClienteGUI(String login, String senha) {
-        if (!autenticar(login, senha)) {
-            JOptionPane.showMessageDialog(null, "Login ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+//    public void loginClienteGUI(String login, String senha) {
+//        if (!autenticar(login, senha)) {
+//            JOptionPane.showMessageDialog(null, "Login ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
 
-        Cliente cliente = buscarClientePorLogin(login);
-        if (cliente == null || !EmailUtil.emailValido(cliente.getEmail())) {
-            JOptionPane.showMessageDialog(null, "E-mail inválido ou cliente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+//        Cliente cliente = buscarClientePorLogin(login);
+//        if (cliente == null || !EmailUtil.emailValido(cliente.getEmail())) {
+//            JOptionPane.showMessageDialog(null, "E-mail inválido ou cliente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
 
 //        String codigo = gerarCodigoVerificacao();
 //        cliente.setCodigoVerificacao(HashUtil.gerarHash(codigo));
@@ -202,18 +195,18 @@ public class Sessao {
 //            return;
 //        }
 
-        clienteLogado = cliente;
-        registrarLogin();
-        JOptionPane.showMessageDialog(null, "Login registrado com sucesso.");
-
-        Conta conta = cliente.getConta();
-        if (conta == null) {
-            conta = new ContaCorrente(cliente);
-            cliente.setConta(conta);
-        }
-
-        abrirMenuBancario(conta);
-    }
+//        clienteLogado = cliente;
+//        registrarLogin();
+//        JOptionPane.showMessageDialog(null, "Login registrado com sucesso.");
+//
+//        Conta conta = cliente.getConta();
+//        if (conta == null) {
+//            conta = new ContaCorrente(cliente);
+//            cliente.setConta(conta);
+//        }
+//
+//        abrirMenuBancario(conta);
+//    }
 
 
     public void logout() {

@@ -14,7 +14,7 @@ public abstract class Conta implements Iconta {
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
-        this.saldo = Math.random() * 10000;
+        this.saldo = Math.round(Math.random() * 10000 * 100) / 100.0; //para 2 casas decimais saldo / 100
     }
 
 
@@ -35,7 +35,6 @@ public abstract class Conta implements Iconta {
         return saldo;
     }
 
-    //Ideal realizar a validação nos campos
     protected int agencia;
     protected int numero;
     protected double saldo;
@@ -70,10 +69,10 @@ public abstract class Conta implements Iconta {
     }
 
     protected void imprimirInfosComuns() {
-        System.out.println("agencia : " + this.cliente.getNome());
-        System.out.println("agencia : " + this.agencia);
-        System.out.println("numero : " + this.numero);
-        System.out.printf("saldo : %.2f%n", this.saldo); // mantém o formato para casas decimais
+        System.out.println("Nome : " + this.cliente.getNome());
+        System.out.println("Agencia : " + this.agencia);
+        System.out.println("Numero : " + this.numero);
+        System.out.printf("Saldo : %.2f%n", this.saldo);
     }
 
 
