@@ -6,52 +6,51 @@ import java.util.stream.Collectors;
 public class Banco {
     private static final String NOME = "Banco do Povo";
 
-    private List<Conta> contas;
-    Conta conta;
-
-    public Conta getConta() {
-        return conta;
-    }
-
-
+    //evita lista null
     public Banco() {
         this.contas = new ArrayList<>();
     }
 
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    private List<Conta> contas;
+    //Conta conta;
 
     public void adicionarConta(Conta conta) {
         contas.add(conta);
     }
 
-    public String listarContas() {
-        StringBuilder sb = new StringBuilder("=== LISTA DE CONTAS TOTAIS DO BANCO ===\n");
-        for (Conta conta : contas) {
-            sb.append(conta.toString()).append("\n");
+    public List<ContaCorrente> getContasCorrentes() {
+        List<ContaCorrente> correntes = new ArrayList<>();
+        if (contas == null) {
+            System.out.println("A lista de contas não foi inicializada.");
+            return correntes; // Retorna vazia
         }
-        return sb.toString();
-    }
-
-    public String listarClientes() {
-        StringBuilder sb = new StringBuilder("=== LISTA DE CLIENTES ===\n");
-        for (Cliente cliente : clientes) {
-            sb.append(cliente.toString()).append("\n");
-        }
-        return sb.toString();
-    }
-
-
-    public void listarContasCorrente() {
         for (Conta conta : contas) {
-            if (conta instanceof ContaCorrente) {
-                System.out.println(String.format("Agencia: %s", conta.getAgencia()));
-                System.out.println(String.format("Cliente : %s", conta.getCliente().getNome()));
-                System.out.println(String.format("Número: %d", conta.getNumero()));
-                System.out.println(String.format("Saldo: %.2f", conta.getSaldo()));
+            if (conta instanceof ContaCorrente) {//apenas CC
+                correntes.add((ContaCorrente) conta);
             }
         }
+        return correntes;
     }
 
-    public void listarContasPoupanca() {
+
+
+
+//    public void getContasCorrente() {
+//        for (Conta conta : contas) {
+//            if (conta instanceof ContaCorrente) {
+//                System.out.println(String.format("Agencia: %s", conta.getAgencia()));
+//                System.out.println(String.format("Cliente : %s", conta.getCliente().getNome()));
+//                System.out.println(String.format("Número: %d", conta.getNumero()));
+//                System.out.println(String.format("Saldo: %.2f", conta.getSaldo()));
+//            }
+//        }
+//    }
+
+    public void getContasPoupanca() {
         for (Conta conta : contas) {
             if (conta instanceof ContaPoupanca) {
                 System.out.println(String.format("Agencia: %s", conta.getAgencia()));
@@ -60,11 +59,6 @@ public class Banco {
                 System.out.println(String.format("Saldo: %.2f", conta.getSaldo()));
             }
         }
-    }
-
-
-    public String getNome() {
-        return NOME;
     }
 
     //CLIENTES
@@ -104,14 +98,12 @@ public class Banco {
     //ordemDecrescente
     public List<String> top3Saldos() {
         List<Conta> copiaContas = new ArrayList<>(contas);
-        return copiaContas.stream()//olha tos itens da lista
+        return copiaContas.stream()//olha todos itens da lista
                 .sorted(Comparator.comparing(Conta::getSaldo).reversed())//normal seria crescente
                 .limit(3)
                 .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
                 .collect(Collectors.toList());//organiza tudo em uma list
     }
-
-
 
     public Cliente buscarClientePorCpf(String cpf) {
         for (Cliente c : clientes) {
