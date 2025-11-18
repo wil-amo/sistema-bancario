@@ -22,7 +22,7 @@ public class Banco {
         contas.add(conta);
     }
 
-    public List<ContaCorrente> getContasCorrentes() {
+    public List<ContaCorrente> getCorrentes() {
         List<ContaCorrente> correntes = new ArrayList<>();
         if (contas == null) {
             System.out.println("A lista de contas não foi inicializada.");
@@ -36,29 +36,18 @@ public class Banco {
         return correntes;
     }
 
-
-
-
-//    public void getContasCorrente() {
-//        for (Conta conta : contas) {
-//            if (conta instanceof ContaCorrente) {
-//                System.out.println(String.format("Agencia: %s", conta.getAgencia()));
-//                System.out.println(String.format("Cliente : %s", conta.getCliente().getNome()));
-//                System.out.println(String.format("Número: %d", conta.getNumero()));
-//                System.out.println(String.format("Saldo: %.2f", conta.getSaldo()));
-//            }
-//        }
-//    }
-
-    public void getContasPoupanca() {
+    public List<ContaPoupanca> getPoupancas() {
+        List<ContaPoupanca> poupancas = new ArrayList<>();
+        if (contas == null) {
+            System.out.println("A lista de contas poupanças não foi inicializada.");
+            return poupancas; // Retorna vazia
+        }
         for (Conta conta : contas) {
-            if (conta instanceof ContaPoupanca) {
-                System.out.println(String.format("Agencia: %s", conta.getAgencia()));
-                System.out.println(String.format("Cliente : %s", conta.getCliente().getNome()));
-                System.out.println(String.format("Número: %d", conta.getNumero()));
-                System.out.println(String.format("Saldo: %.2f", conta.getSaldo()));
+            if (conta instanceof ContaPoupanca) {//apenas CC
+                poupancas.add((ContaPoupanca) conta);//cast para evitar /castException
             }
         }
+        return poupancas;
     }
 
     //CLIENTES

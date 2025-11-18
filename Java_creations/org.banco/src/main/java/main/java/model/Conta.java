@@ -79,17 +79,19 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
 
 
     public void aplicarTaxaSaque(double valorSaque){
-        if(totalSaques > 3){
+        if(totalSaques > 0 && totalSaques % 3 == 0){
             double taxa = valorSaque * TAXA_SAQUE;
             this.saldo -= taxa;
+            this.totalSaques=-4;
 
         }
     }
 
     public void aplicarTaxaTransferencia(double valorSaque){
-        if(totalSaques > 6){
+        if(totalSaques > 0 && totalSaques % 6 == 0){
             double taxa = valorSaque * TAXA_TRANSFERENCIA;
             this.saldo -= taxa;
+
         }
     }
 

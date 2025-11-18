@@ -1,10 +1,6 @@
 package main.java.model;
 
 import main.java.model.service.Sessao;
-
-
-
-import static main.java.model.infra.Exception.esperar;
 import static main.java.model.infra.Exception.i;
 
 public class Main {
@@ -22,14 +18,14 @@ public class Main {
 
 
 
-        Cliente cliente2 = new Cliente("0987654321", "Elton", "Elton", "1234","Elson@gmail.com");
+        Cliente cliente2 = new Cliente("0983456321", "Elton", "Elton", "1234","Elson@gmail.com");
         Conta conta2 = new ContaCorrente(cliente2);
         banco.adicionarCliente(cliente2);
         banco.adicionarConta(conta2);
         banco.vincularConta(cliente2,conta2);
         sessao.registrarNovoCliente(cliente2);
 
-        Cliente cliente3 = new Cliente("0987654321", "Teo", "Teo", "1234","Teo@gmail.com");
+        Cliente cliente3 = new Cliente("09234454321", "Teo", "Teo", "1234","Teo@gmail.com");
         Conta conta3 = new ContaCorrente(cliente3);
         banco.adicionarCliente(cliente3);
         banco.adicionarConta(conta3);
@@ -37,22 +33,36 @@ public class Main {
         sessao.registrarNovoCliente(cliente3);
 
 
-        Cliente cliente4 = new Cliente("0987654321", "Jorge", "Jorge", "1234","Jorge@gmail.com");
+        Cliente cliente4 = new Cliente("098765431", "Jorge", "Jorge", "1234","Jorge@gmail.com");
         Conta conta4= new ContaCorrente(cliente4);
         banco.adicionarCliente(cliente4);
         banco.adicionarConta(conta4);
         banco.vincularConta(cliente4,conta4);
         sessao.registrarNovoCliente(cliente4);
 
-        Cliente cliente5 = new Cliente("0987654321", "Ana", "Ana", "1234","Ana@gmail.com");
+        Cliente cliente5 = new Cliente("0987654391", "Ana", "Ana", "1234","Ana@gmail.com");
         Conta conta5 = new ContaCorrente(cliente5);
         banco.adicionarCliente(cliente5);
         banco.adicionarConta(conta5);
         banco.vincularConta(cliente5,conta5);
         sessao.registrarNovoCliente(cliente5);
 
+        Cliente cliente6 = new Cliente("0987654391", "Pedro", "Pedro", "1234","Pedro@gmail.com");
+        Conta conta6 = new ContaPoupanca(cliente6);
+        banco.adicionarCliente(cliente6);
+        banco.adicionarConta(conta6);
+        banco.vincularConta(cliente6,conta6);
+        sessao.registrarNovoCliente(cliente6);
 
-        i(banco.top3Saldos());
+//        System.out.println("\n");
+//        i(banco.getClientes());
+//        i(banco.getContas());
+        i(banco.getPoupancas());
+        System.out.println("\n");
+        i(banco.getPoupancas());
+
+
+
 
 
 

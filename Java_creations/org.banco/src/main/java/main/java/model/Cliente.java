@@ -8,11 +8,11 @@ public class Cliente implements Comparable<Cliente> {
     private String  nome;
     private final String login;
 
-    public String getSenhaHash() {
-        return senhaHash;
-    }
-
-    private String senhaHash;
+//    public String getSenhaHash() {
+//        return senhaHash;
+//    }
+//
+//    private String senhaHash;
 
     public String getCPF() {
         return CPF;
@@ -25,9 +25,6 @@ public class Cliente implements Comparable<Cliente> {
         this.conta = conta;
     }
 
-    public main.java.model.Conta getConta() {
-        return conta;
-    }
 
 
     private String email;
@@ -40,23 +37,24 @@ public class Cliente implements Comparable<Cliente> {
         this.email = email;
     }
 
-    private String codigoVerificacao;
-    public String getCodigoVerificacao() {
-        return codigoVerificacao;
-    }
-
-    public void setCodigoVerificacao(String codigoVerificacao) {
-        this.codigoVerificacao = codigoVerificacao;
-    }
-    public void setSenhaHash(String senhaHash) {
-        this.senhaHash = senhaHash;
-    }
+    // precisa implementar
+//    private String codigoVerificacao;
+//    public String getCodigoVerificacao() {
+//        return codigoVerificacao;
+//    }
+//
+//    public void setCodigoVerificacao(String codigoVerificacao) {
+//        this.codigoVerificacao = codigoVerificacao;
+//    }
+//    public void setSenhaHash(String senhaHash) {
+//        this.senhaHash = senhaHash;
+//    }
 
     public Cliente(String CPF, String nome, String login, String senha, String email) {
         this.CPF = CPF;
         this.nome = nome;
         this.login = login;
-        this.senhaHash = HashUtil.gerarHash(senha);
+        //this.senhaHash = HashUtil.gerarHash(senha);
         this.email = email;
     }
     public String getNome() {
@@ -80,15 +78,17 @@ public class Cliente implements Comparable<Cliente> {
         Cliente cliente = (Cliente) o;
         return Objects.equals(nome, cliente.nome)
                 && Objects.equals(login, cliente.login)
-                && Objects.equals(senhaHash, cliente.senhaHash)
                 && Objects.equals(CPF, cliente.CPF)
-                && Objects.equals(email, cliente.email)
-                && Objects.equals(codigoVerificacao, cliente.codigoVerificacao);
+                && Objects.equals(email, cliente.email);
+                //&& Objects.equals(senhaHash, cliente.senhaHash)
+        //  && Objects.equals(codigoVerificacao, cliente.codigoVerificacao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, login, senhaHash, CPF, email, codigoVerificacao);
+        return Objects.hash(nome, login, CPF, email);
+//        return Objects.hash(nome, login, senhaHash, CPF, email, codigoVerificacao);
+
     }
 
     @Override
