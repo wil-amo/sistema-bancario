@@ -16,7 +16,6 @@ public class Banco {
     }
 
     private List<Conta> contas;
-    //Conta conta;
 
     public void adicionarConta(Conta conta) {
         contas.add(conta);
@@ -61,7 +60,7 @@ public class Banco {
         return clientes;
     }
 
-    //encontra (conta e cliente)
+    //(conta e cliente - Final)
     private Map<Cliente, Conta> contasPorCliente = new HashMap<>();
 
     //vincula cliente e conta
@@ -94,12 +93,45 @@ public class Banco {
                 .collect(Collectors.toList());//organiza tudo em uma list
     }
 
+    public List<String> ordenaPorSaldo() {
+        List<Conta> ordemSaldo = new ArrayList<>(contas);
+        return ordemSaldo.stream()
+                .sorted(Comparator.comparing(Conta::getSaldo).reversed())
+                .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
+                .collect(Collectors.toList());
+    }
+
+    public void excluirConta(int removerConta) {
+        if (contas == null) {
+            System.out.println("Lista de contas não contem nada.");
+            return;
+        }
+        try {
+            contas.removeIf(conta -> conta != null && conta.numero == removerConta);
+            System.out.println("Conta de número " + removerConta + " foi removida com sucesso.");
+        } catch (Exception e) {
+            System.err.println("Erro ao remover contas: " + e.getMessage());
+        }
+    }
+
+        public Conta buscaPorConta(int conta) {
+        for (Conta c : contas) {
+            if (c.getNumero() == conta) {
+                return c;
+            }
+        }
+        System.out.println("Conta não existe.");
+        return null;
+    }
+
+
     public Cliente buscarClientePorCpf(String cpf) {
         for (Cliente c : clientes) {
             if (c.getCPF().equals(cpf)) {
                 return c;
             }
         }
+        System.out.println("CPF não existe na base.");
         return null;
     }
 }

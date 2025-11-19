@@ -1,6 +1,8 @@
 package main.java.model;
 
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Conta implements Iconta,Comparable<Conta> {
@@ -11,6 +13,8 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
 
     private final Cliente cliente;
     private int totalSaques;
+
+    
 
     public Conta(main.java.model.Cliente cliente) {
         this.agencia = AGENCIA_PADRAO;
@@ -70,6 +74,7 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
         destino.deposito(valor);
     }
 
+
     protected void imprimirInfosComuns() {
         System.out.println("Nome : " + this.cliente.getNome());
         System.out.println("Agencia : " + this.agencia);
@@ -82,7 +87,6 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
         if(totalSaques > 0 && totalSaques % 3 == 0){
             double taxa = valorSaque * TAXA_SAQUE;
             this.saldo -= taxa;
-            this.totalSaques=-4;
 
         }
     }
