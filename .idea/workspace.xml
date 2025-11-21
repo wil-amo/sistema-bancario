@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="🐛 fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof">
+    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="♻️ refactor: Organizando pacotes e classes atuais do projeto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/Registro-logins.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/Registro-logins.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaPoupanca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Iconta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/interfaces/Iconta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/EmailUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/Exception.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/exception/Exception.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/HashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/HashUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/LoggerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/logger/LoggerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/service/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/service/Sessao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registro-logins.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Registro-logins.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,15 +45,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.main.java.main.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.java.main.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.main.java.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.model.Main" />
@@ -162,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763482153803</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="♻️ refactor: Organizando pacotes e classes atuais do projeto">
+      <option name="closed" value="true" />
+      <created>1763714581804</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763714581804</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -173,7 +171,8 @@
     <MESSAGE value="feat: implementar método top3Saldos para listar contas com maiores saldos" />
     <MESSAGE value="♻️ refactor: remover código duplicado" />
     <MESSAGE value=" fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof" />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof" />
+    <MESSAGE value="♻️ refactor: Organizando pacotes e classes atuais do projeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="♻️ refactor: Organizando pacotes e classes atuais do projeto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

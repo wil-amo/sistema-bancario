@@ -11,6 +11,16 @@ public class Banco {
         this.contas = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Banco{" +
+                "contas=" + contas +
+                ", clientes=" + clientes +
+                ", contasPorCliente=" + contasPorCliente +
+                '}';
+
+    }
+
     public List<Conta> getContas() {
         return contas;
     }
@@ -68,7 +78,7 @@ public class Banco {
         contasPorCliente.put(cliente, conta);
     }
 
-    public List<String> contaEClienteVinculado() {
+    public List<String> getContasEClientesVinculados() {
         List<String> vinculados = new ArrayList<>();
         for (Map.Entry<Cliente, Conta> entry : contasPorCliente.entrySet()) {
             Cliente cliente = entry.getKey();
@@ -82,6 +92,7 @@ public class Banco {
         }
         return vinculados;
     }
+
 
     //ordemDecrescente
     public List<String> top3Saldos() {
@@ -101,6 +112,32 @@ public class Banco {
                 .collect(Collectors.toList());
     }
 
+    //Trabalha em conjunto com excluirConta
+    // Exclui conta do map<Cliente,Conta> que estão vinculados
+    public void excluirContaVinculada(int removerConta) {
+        Iterator<Map.Entry<Cliente, Conta>> it = contasPorCliente.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Cliente, Conta> entry = it.next();
+            if (entry.getValue().getNumero() == removerConta) {
+                it.remove();
+            }
+        }
+        System.out.println("Conta de número -> "+ removerConta+ "foi excluida com sucesso do cliente vinculado");
+    }
+
+    //Encontrei alguns padrões assim
+//    boolean removido = contasPorCliente.entrySet().removeIf(
+//            entry -> entry.getValue().getNumero() == removerConta
+//    );
+//
+//if (removido) {
+//        System.out.println("Conta " + removerConta + " excluída com sucesso.");
+//    } else {
+//        System.out.println("Conta " + removerConta + " não encontrada.");
+//    }
+
+
+    //Exclui contas apenas da lista de contas
     public void excluirConta(int removerConta) {
         if (contas == null) {
             System.out.println("Lista de contas não contem nada.");
@@ -112,6 +149,7 @@ public class Banco {
         } catch (Exception e) {
             System.err.println("Erro ao remover contas: " + e.getMessage());
         }
+
     }
 
         public Conta buscaPorConta(int conta) {

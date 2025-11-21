@@ -16,7 +16,7 @@ public class ContaCorrente extends Conta {
 
     @Override
     public String toString() {
-        return String.format("ContaCorrente{cliente='%s', agencia=%d, numero=%d, saldo=%.2f}",
+        return String.format("ContaCorrente{cliente='%s', agencia=%d, numero=%d, saldo=%.2f}\n",
                 super.getCliente().getNome(), super.getAgencia(), super.getNumero(), super.getSaldo());
     }
 

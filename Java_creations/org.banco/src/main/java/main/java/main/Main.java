@@ -51,10 +51,20 @@ public class Main {
         banco.adicionarConta(conta6);
         banco.vincularConta(cliente6,conta6);
 
-        i(banco.ordenaPorSaldo());
+        //i(banco.ordenaPorSaldo());
+        i("GET CONTAS TOTAIS");
+        i(banco.getContas());
+        i("\nREMOVEU CONTA X");
         banco.excluirConta(1005);
-        i(banco.top3Saldos());
+        i("\nGET CONTAS APÓS EXCLUSÃO");
+        i(banco.getContas());
 
+        i("\nGET CONTAS/CLIENTES TOTAIS");
+        i(banco.getContasEClientesVinculados());
+        i("\nREMOVEU CONTA X DO CLIENTE VINCULADO");
+        banco.excluirContaVinculado(1005);
+        i("\nGET CONTAS/CLIENTES APÓS EXCXLUSÃO");
+        i(banco.getContasEClientesVinculados());
 
 
     }
