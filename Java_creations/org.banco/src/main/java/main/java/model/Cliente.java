@@ -1,7 +1,5 @@
 package main.java.model;
 
-import main.java.model.infra.HashUtil;
-
 import java.util.Objects;
 
 public class Cliente implements Comparable<Cliente> {
@@ -19,9 +17,9 @@ public class Cliente implements Comparable<Cliente> {
     }
 
     private final String CPF;
-    private main.java.model.Conta conta;
+    private Conta conta;
 
-    public void setConta(main.java.model.Conta conta) {
+    public void setConta(Conta conta) {
         this.conta = conta;
     }
 

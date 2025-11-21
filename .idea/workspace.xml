@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="Inicio da implementação de taxa de saque e transferência">
+    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="🐛 fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clientes-criados.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Clientes-criados.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/Registro-logins.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/Registro-logins.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/service/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/service/Sessao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaPoupanca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Iconta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/interfaces/Iconta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/EmailUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/Exception.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/exception/Exception.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/HashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/HashUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/infra/LoggerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/logger/LoggerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/service/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/service/Sessao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registro-logins.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Registro-logins.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +58,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.main.java.main.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.main.java.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.model.Main" />
       <module name="org-com-banco" />
@@ -70,8 +78,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main.java.main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.main.Main" />
+      <module name="org-com-banco" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main.java.main.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -92,26 +114,74 @@
       <option name="project" value="LOCAL" />
       <updated>1763201185160</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Inicio remoção JOptionPane, corrigir geração de número aleatório e criar listagem de contas/clientes com Map">
+      <option name="closed" value="true" />
+      <created>1763364923483</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763364923483</updated>
+    </task>
+    <task id="LOCAL-00003" summary="🔧 chore: adicionar método utilitário de espera com Thread.sleep">
+      <option name="closed" value="true" />
+      <created>1763365744746</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763365744746</updated>
+    </task>
+    <task id="LOCAL-00004" summary="✨ feat: implementar Comparable na classe abstrata Conta">
+      <option name="closed" value="true" />
+      <created>1763370126593</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763370126593</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: implementar método top3Saldos para listar contas com maiores saldos">
+      <option name="closed" value="true" />
+      <created>1763371270316</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763371270316</updated>
+    </task>
+    <task id="LOCAL-00006" summary="♻️ refactor: remover código duplicado">
+      <option name="closed" value="true" />
+      <created>1763455029676</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763455029676</updated>
+    </task>
+    <task id="LOCAL-00007" summary="🐛 fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof">
+      <option name="closed" value="true" />
+      <created>1763482153803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763482153803</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inicio da implementação de taxa de saque e transferência" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio da implementação de taxa de saque e transferência" />
+    <MESSAGE value="Inicio remoção JOptionPane, corrigir geração de número aleatório e criar listagem de contas/clientes com Map" />
+    <MESSAGE value=" chore: adicionar método utilitário de espera com Thread.sleep" />
+    <MESSAGE value="✨ feat: implementar Comparable na classe abstrata Conta" />
+    <MESSAGE value="feat: implementar método top3Saldos para listar contas com maiores saldos" />
+    <MESSAGE value="♻️ refactor: remover código duplicado" />
+    <MESSAGE value=" fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof" />
+    <option name="LAST_COMMIT_MESSAGE" value=" fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="11" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

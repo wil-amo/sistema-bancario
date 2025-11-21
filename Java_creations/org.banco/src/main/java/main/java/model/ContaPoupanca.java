@@ -1,9 +1,9 @@
 package main.java.model;
 
-public class ContaPoupanca extends main.java.model.Conta {
+public class ContaPoupanca extends Conta {
 
 
-    public ContaPoupanca(main.java.model.Cliente cliente) {
+    public ContaPoupanca(Cliente cliente) {
         super(cliente);
         cliente.setConta(this); //vincula essa conta ao cliente
     }

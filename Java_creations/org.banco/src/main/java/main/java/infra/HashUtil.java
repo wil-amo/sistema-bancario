@@ -1,4 +1,4 @@
-package main.java.model.infra;
+package main.java.infra;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

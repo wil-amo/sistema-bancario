@@ -1,4 +1,4 @@
-package main.java.model.infra;
+package main.java.infra.exception;
 
 //realizar testes visuais, dando clareza e simular atraso
 public class Exception {

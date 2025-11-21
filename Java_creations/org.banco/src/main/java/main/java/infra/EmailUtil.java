@@ -1,4 +1,4 @@
-package main.java.model.infra;
+package main.java.infra;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.*;

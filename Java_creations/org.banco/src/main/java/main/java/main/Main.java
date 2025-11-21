@@ -1,7 +1,12 @@
-package main.java.model;
+package main.java.main;
 
-import static main.java.model.infra.Exception.esperar;
-import static main.java.model.infra.Exception.i;
+import main.java.model.ContaCorrente;
+import main.java.model.ContaPoupanca;
+import main.java.model.Banco;
+import main.java.model.Cliente;
+import main.java.model.Conta;
+
+import static main.java.infra.exception.Exception.i;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -48,19 +53,7 @@ public class Main {
 
         i(banco.ordenaPorSaldo());
         banco.excluirConta(1005);
-
-
-
-
-
-
-
-
-
-
-
-
-
+        i(banco.top3Saldos());
 
 
 

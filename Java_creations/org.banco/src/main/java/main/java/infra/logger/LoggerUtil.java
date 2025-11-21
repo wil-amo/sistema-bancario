@@ -1,4 +1,4 @@
-package main.java.model.infra;
+package main.java.infra.logger;
 
 import java.io.IOException;
 import java.util.logging.*;

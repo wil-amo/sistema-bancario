@@ -1,9 +1,9 @@
 package main.java.model;
 
-public class ContaCorrente extends main.java.model.Conta {
+public class ContaCorrente extends Conta {
 
 
-    public ContaCorrente(main.java.model.Cliente cliente) {
+    public ContaCorrente(Cliente cliente) {
         super(cliente);
         cliente.setConta(this); // vincula conta ao cliente
     }

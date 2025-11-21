@@ -1,8 +1,8 @@
 package main.java.model;
 
 
-import java.util.List;
-import java.util.Map;
+import main.java.model.interfaces.Iconta;
+
 import java.util.Objects;
 
 public abstract class Conta implements Iconta,Comparable<Conta> {
@@ -16,7 +16,7 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
 
     
 
-    public Conta(main.java.model.Cliente cliente) {
+    public Conta(Cliente cliente) {
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
