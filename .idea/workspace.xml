@@ -4,11 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="♻️ refactor: Organizando pacotes e classes atuais do projeto">
+    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/App/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Banco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ClienteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ContaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/App/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/DB/MySQLConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/DB/interfaces/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Dao/ClienteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/DbHealthCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Banco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Conta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/ContaCorrente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/ContaPoupanca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/interfaces/Iconta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clientes-criados.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/Clientes-criados.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/Logins-registrados.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/Registro-logins.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/app-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/EmailUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/HashUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/exception/Exception.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/exception/Exception.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/infra/logger/LoggerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/logger/LoggerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/BancoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/ContaPoupanca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/model/interfaces/Iconta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/interfaces/Iconta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/service/Sessao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logins-registrados.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registro-logins.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-log.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +54,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -45,22 +82,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.java.main.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.main.java.App.Main.executor": "Run",
+    "Application.main.java.V1.POO.App.Main.executor": "Run",
+    "Application.main.java.main.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/6133884/Documents/projetos/sistema-bancario/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model"
   }
-}</component>
-  <component name="RunManager" selected="Application.main.java.main.Main">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\6133884\Documents\projetos\sistema-bancario\Java_creations\org.banco\src\main\java\main\java\V1\POO\Model" />
+      <recent name="C:\Users\6133884\Documents\projetos\sistema-bancario\Java_creations\org.banco\src\main\java\main\java\V1\POO" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.java.V2.JDBC" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.main.java.V1.POO.App.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.model.Main" />
       <module name="org-com-banco" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.model.*" />
+          <option name="PATTERN" value="main.java.V2.JDBC.Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,12 +117,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.java.main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.main.Main" />
+    <configuration name="main.java.V1.POO.App.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.V1.POO.App.Main" />
       <module name="org-com-banco" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.main.*" />
+          <option name="PATTERN" value="main.java.V1.POO.App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.java.V2.JDBC.App.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.V2.JDBC.App.Main" />
+      <module name="org-com-banco" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.V2.JDBC.App.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -83,7 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main.java.main.Main" />
+        <item itemvalue="Application.main.java.V1.POO.App.Main" />
+        <item itemvalue="Application.main.java.V2.JDBC.App.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -160,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763714581804</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="🐛 fix: garante que excluirConta utilize excluirContaVinculada para remoção consistente">
+      <option name="closed" value="true" />
+      <created>1763722262384</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763722262384</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -172,7 +243,8 @@
     <MESSAGE value="♻️ refactor: remover código duplicado" />
     <MESSAGE value=" fix: Em banco - método getCorrentes/getPoupanca foram corrigidos com instanceof" />
     <MESSAGE value="♻️ refactor: Organizando pacotes e classes atuais do projeto" />
-    <option name="LAST_COMMIT_MESSAGE" value="♻️ refactor: Organizando pacotes e classes atuais do projeto" />
+    <MESSAGE value=" fix: garante que excluirConta utilize excluirContaVinculada para remoção consistente" />
+    <option name="LAST_COMMIT_MESSAGE" value=" fix: garante que excluirConta utilize excluirContaVinculada para remoção consistente" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
