@@ -6,31 +6,70 @@ import java.util.*;
 public class BancoService {
 
         private Banco banco;
+        //Entende que haverá buscas 1 p/ muitos
         private Map<Cliente, List<Conta>> contasPorCliente = new HashMap<>();
 
         public BancoService(Banco banco) {
             this.banco = banco;
         }
 
-        public void adicionarCliente(Cliente cliente) {
-            banco.getClientes().add(cliente);
-            contasPorCliente.putIfAbsent(cliente, new ArrayList<>());
-        }
 
-        public void adicionarConta(Cliente cliente, Conta conta) {
-            banco.getContas().add(conta);
-            contasPorCliente.computeIfAbsent(cliente, k -> new ArrayList<>()).add(conta);
-        }
-
-        public void excluirConta(int numeroConta) {
-            banco.getContas().removeIf(c -> c.getNumero() == numeroConta);
-            contasPorCliente.values().forEach(lista -> lista.removeIf(c -> c.getNumero() == numeroConta));
-        }
-
-        public Map<Cliente, List<Conta>> getContasPorCliente() {
-            return contasPorCliente;
-        }
+    public List<Cliente> listarClientes() {
+        return banco.getClientes();
     }
+
+    public List<Conta> listarContas() {
+        return banco.getContas();
+    }
+
+    public void imprimirClientes() {
+        banco.getClientes().forEach(c ->
+                System.out.println("Cliente: " + c.getNome() + " | CPF: " + c.getCPF()));
+    }
+
+    public void imprimirContas() {
+        banco.getContas().forEach(ct ->
+                System.out.println("Conta: " + ct.getNumero() + " | Saldo: " + ct.getSaldo()));
+    }
+
+    public void adicionarCliente(Cliente cliente) {
+        if (banco.getClientes().stream().anyMatch(c -> c.getCPF().equals(cliente.getCPF()))) {
+            throw new IllegalArgumentException("Cliente já existe!");
+        }
+        banco.addCliente(cliente);
+        contasPorCliente.putIfAbsent(cliente, new ArrayList<>());
+    }
+
+    public void adicionarConta(Cliente cliente, Conta conta) {
+        if (!banco.getClientes().contains(cliente)) {
+            throw new IllegalArgumentException("Cliente não encontrado!");
+        }
+        banco.addConta(conta);
+        contasPorCliente.computeIfAbsent(cliente, k -> new ArrayList<>()).add(conta);
+    }
+
+    public void excluirConta(int numeroConta) {
+        banco.removeConta(numeroConta);
+        contasPorCliente.values().forEach(lista -> lista.removeIf(c -> c.getNumero() == numeroConta));
+    }
+
+//    public Conta abrirContaCorrente(Cliente cliente) {
+//        Conta conta = new ContaCorrente(cliente);
+//        banco.addConta(cliente, conta);
+//        return conta;
+//    }
+//
+//    public Conta abrirContaPopanca(Cliente cliente) {
+//        Conta conta = new ContaPoupanca(cliente);
+//        banco.addConta(cliente, conta);
+//        return conta;
+//    }
+
+
+
+
+}
+
 //    private static final String NOME = "Banco";
 //
 //    //evita lista null
@@ -179,7 +218,6 @@ public class BancoService {
 //        } catch (Exception e) {
 //            System.err.println("Erro ao remover contas: " + e.getMessage());
 //        }
-//
 //    }
 //
 //        public Conta buscaPorConta(int conta) {
