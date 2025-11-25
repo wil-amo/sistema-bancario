@@ -11,7 +11,15 @@ public class ConsultaService {
     public ConsultaService(Banco banco) {
         this.banco = banco;
     }
+    public void imprimirClientes() {
+        banco.getClientes().forEach(c ->
+                System.out.println("Cliente: " + c.getNome() + " | CPF: " + c.getCPF()));
+    }
 
+    public void imprimirContas() {
+        banco.getContas().forEach(ct ->
+                System.out.println("Conta: " + ct.getNumero() + " | Saldo: " + ct.getSaldo()));
+    }
     // Top 3 maiores saldos
     public List<String> top3Saldos() {
         return banco.getContas().stream()

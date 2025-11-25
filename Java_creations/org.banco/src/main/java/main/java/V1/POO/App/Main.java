@@ -3,6 +3,7 @@ import main.java.V1.POO.Model.Cliente;
 import main.java.V1.POO.Model.Conta;
 import main.java.V1.POO.Model.ContaCorrente;
 import main.java.V1.POO.Service.BancoService;
+import main.java.V1.POO.Service.ConsultaService;
 import main.java.V1.POO.Service.ContaService;
 
 
@@ -10,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco("BANCO XP");
         BancoService bancoService = new BancoService(banco);
+        ConsultaService consultaService = new ConsultaService(banco);
 
         Cliente cliente1 = new Cliente("12345678910", "Cesar", "Cesar.Rosa", "Cesar-Rosa@gmail.com");
         Cliente cliente2 = new Cliente("10987654321", "Maria", "Maria.Cruz", "Maria-Cruz@gmail.com");
@@ -31,39 +33,44 @@ public class Main {
         bancoService.adicionarConta(cliente2,conta2);
         bancoService.adicionarConta(cliente3,conta3);
 
+
+
         System.out.println("Contas");
-        bancoService.imprimirContas();
+        consultaService.imprimirContas();
 
         System.out.println("\nClientes");
-        bancoService.imprimirClientes();
+        consultaService.imprimirClientes();
 
 
 //        bancoService.excluirConta(1000);
 
 
         System.out.println("Contas");
-        bancoService.imprimirContas();
+        consultaService.imprimirContas();
 
         System.out.println("\nClientes");
-        bancoService.imprimirClientes();
+        consultaService.imprimirClientes();
 
 
         System.out.println("\n");
         contaService1.depositar(500);
         System.out.println("\n");
-       contaService2.sacar(200);
+        contaService2.sacar(200);
 
         System.out.println("\n");
-       contaService1.transferir(100, conta2);
+        contaService1.transferir(100, conta2);
 
         System.out.println("\n");
 
-        System.out.println("Contas");
-        bancoService.imprimirContas();
+        bancoService.vinculaContaECliente(cliente1,conta1);
+        bancoService.vinculaContaECliente(cliente2,conta2);
+        bancoService.vinculaContaECliente(cliente3,conta3);
 
-        System.out.println("\nClientes");
-        bancoService.imprimirClientes();
 
+        System.out.println(bancoService.listarContasClientes());
+
+        bancoService.excluirConta(1000);
+        System.out.println(bancoService.listarContasClientes());
 
 
     }

@@ -6,12 +6,14 @@ import java.util.*;
 public class BancoService {
 
         private Banco banco;
-        //Entende que haverá buscas 1 p/ muitos
-        private Map<Cliente, List<Conta>> contasPorCliente = new HashMap<>();
 
         public BancoService(Banco banco) {
             this.banco = banco;
         }
+
+    public List<String> listarContasClientes() {
+            return banco.listarContasEClientes();
+    }
 
 
     public List<Cliente> listarClientes() {
@@ -22,22 +24,13 @@ public class BancoService {
         return banco.getContas();
     }
 
-    public void imprimirClientes() {
-        banco.getClientes().forEach(c ->
-                System.out.println("Cliente: " + c.getNome() + " | CPF: " + c.getCPF()));
-    }
 
-    public void imprimirContas() {
-        banco.getContas().forEach(ct ->
-                System.out.println("Conta: " + ct.getNumero() + " | Saldo: " + ct.getSaldo()));
-    }
 
     public void adicionarCliente(Cliente cliente) {
         if (banco.getClientes().stream().anyMatch(c -> c.getCPF().equals(cliente.getCPF()))) {
             throw new IllegalArgumentException("Cliente já existe!");
         }
         banco.addCliente(cliente);
-        contasPorCliente.putIfAbsent(cliente, new ArrayList<>());
     }
 
     public void adicionarConta(Cliente cliente, Conta conta) {
@@ -45,12 +38,17 @@ public class BancoService {
             throw new IllegalArgumentException("Cliente não encontrado!");
         }
         banco.addConta(conta);
-        contasPorCliente.computeIfAbsent(cliente, k -> new ArrayList<>()).add(conta);
     }
 
+    public void vinculaContaECliente(Cliente cliente, Conta conta){
+            banco.vinculaContaECliente(cliente,conta);
+    }
+
+
     public void excluirConta(int numeroConta) {
-        banco.removeConta(numeroConta);
-        contasPorCliente.values().forEach(lista -> lista.removeIf(c -> c.getNumero() == numeroConta));
+        System.out.println(numeroConta > 999);{
+            banco.removeConta(numeroConta);
+        }
     }
 
 //    public Conta abrirContaCorrente(Cliente cliente) {
