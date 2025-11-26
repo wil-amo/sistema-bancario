@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="♻️refactor: Definir relacionamento 1:1 Cliente-Conta e implementa métodos de adição/exclusão no Service">
+    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="✨ feat: Início da validação das entidades e criação do package de exceptions">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Exception/DominioException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Exception/InvalidClientException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Exception/InvalidContaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Exception/MovimentacaoInvalidaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Exception/TaxaExeception.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/App/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Banco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/ContaPoupanca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/BancoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/BancoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/App/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +43,17 @@
     &quot;assignee&quot;: &quot;wil-amo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/wil-amo/sistema-bancario.git&quot;,
-    &quot;accountId&quot;: &quot;c16091bd-4fc8-4d98-9cfb-0d0cdd9d29d0&quot;
-  }
-}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6683d01f-bfd4-4228-a87a-2d8855ab88df" />
+        <option name="url" value="git@github.com:wil-amo/sistema-bancario.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -49,18 +62,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.java.App.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.java.V1.POO.App.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.java.main.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/6133884/Documents/projetos/sistema-bancario/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.main.java.App.Main.executor": "Run",
+    "Application.main.java.V1.POO.App.Main.executor": "Run",
+    "Application.main.java.main.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/willi/Java_creations/sistema-bancario"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\6133884\Documents\projetos\sistema-bancario\Java_creations\org.banco\src\main\java\main\java\V1\POO\Model" />
@@ -70,7 +86,7 @@
       <recent name="main.java.V2.JDBC" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.main.java.V1.POO.App.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.model.Main" />
       <module name="org-com-banco" />
@@ -112,12 +128,20 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.main.java.V1.POO.App.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.main.java.V2.JDBC.App.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="" />
@@ -238,7 +262,8 @@
     <MESSAGE value="♻️refactor: aplicando padrão Service/Model e separando responsabilidades" />
     <MESSAGE value="♻️refactor: ajustes em Banco e BancoService para encapsulamento e início de regras de exclusão" />
     <MESSAGE value="♻️refactor: Definir relacionamento 1:1 Cliente-Conta e implementa métodos de adição/exclusão no Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="♻️refactor: Definir relacionamento 1:1 Cliente-Conta e implementa métodos de adição/exclusão no Service" />
+    <MESSAGE value="✨ feat: Início da validação das entidades e criação do package de exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Início da validação das entidades e criação do package de exceptions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

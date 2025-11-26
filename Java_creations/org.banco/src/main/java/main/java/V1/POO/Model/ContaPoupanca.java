@@ -1,10 +1,6 @@
 package main.java.V1.POO.Model;
 
-import main.java.V1.POO.Model.Cliente;
-import main.java.V1.POO.Model.Conta;
-
 public class ContaPoupanca extends Conta {
-
 
     public ContaPoupanca(Cliente cliente) {
         super(cliente);

@@ -1,4 +1,3 @@
-package main.java.V2.JDBC.App;
 import main.java.V2.JDBC.Dao.ClienteDAO;
 import main.java.V2.JDBC.DB.MySQLConnection;
 import main.java.V2.JDBC.Infra.DbHealthCheck;

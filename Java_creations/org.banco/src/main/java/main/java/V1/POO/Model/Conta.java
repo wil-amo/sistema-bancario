@@ -1,12 +1,14 @@
 package main.java.V1.POO.Model;
 
 
-import main.java.V1.POO.Service.BancoService;
+import main.java.V1.POO.Exception.InvalidContaException;
+import main.java.V1.POO.Exception.TaxaExeception;
+import main.java.V1.POO.Exception.MovimentacaoInvalidaException;
 import main.java.V2.JDBC.Model.interfaces.Iconta;
 
 import java.util.Objects;
 
-public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Validavel {
+public abstract class Conta implements Iconta,Comparable<Conta>{
     private static final int AGENCIA_PADRAO = 1272;
     private static int SEQUENCIAL = 1000;
     private static final double TAXA_SAQUE = 0.05; //5%
@@ -17,6 +19,9 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
 
 
     public Conta(Cliente cliente) {
+        if (cliente.getCPF() == null && cliente.getLogin() ==null){
+            throw new InvalidContaException("CPF ou Login são possuem dados " + cliente.getCPF() +" "+ cliente.getLogin());
+        }
         this.agencia = AGENCIA_PADRAO; //trocar aqui dentro de um serviceConta e passando o contador no construtor
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
@@ -46,7 +51,7 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
 
     public void deposito(double valor) {
         if (valor <= 0) {
-            throw new IllegalArgumentException("O valor do depósito deve ser positivo.");
+            throw new MovimentacaoInvalidaException("O valor depósito DEVE ser maior que 0. Valor digitado foi de: ", valor);
         }
 
         this.saldo += valor;
@@ -55,10 +60,10 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
     public void saque(double valor) {
         aplicarTaxaSaque(valor);
         if (valor <= 0) {
-            throw new IllegalArgumentException("O valor do saque deve ser positivo.");
+            throw new MovimentacaoInvalidaException("O valor do saque deve ser positivo.", valor);
         }
         if (valor > saldo) {
-            throw new IllegalStateException("Saldo insuficiente para realizar o saque.");
+            throw new MovimentacaoInvalidaException("Saldo insuficiente para realizar o saque. Valor atual em conta: ", getSaldo());
         }
         this.saldo -= valor;
         totalSaques++;
@@ -66,8 +71,8 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
 
     public void transferencia(double valor, Conta destino) {
         aplicarTaxaTransferencia(valor);
-        if (destino == null) {
-            throw new IllegalArgumentException("Conta de destino não pode ser nula.");
+        if (destino == null || destino.getNumero() < 4) {
+            throw new InvalidContaException("Conta está nula, operações não permitidas");
         }
         this.saque(valor);
         destino.deposito(valor);
@@ -84,6 +89,9 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
     public void aplicarTaxaSaque(double valorSaque) {
         if (totalSaques > 0 && totalSaques % 3 == 0) {
             double taxa = valorSaque * TAXA_SAQUE;
+            if (saldo <=0) {
+                throw new TaxaExeception("Saldo zerado, o valor será descontado a partir do dia X. Valor de taxa é de:  ", saldo);
+            }
             this.saldo -= taxa;
 
         }
@@ -92,8 +100,10 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
     public void aplicarTaxaTransferencia(double valorSaque) {
         if (totalSaques > 0 && totalSaques % 6 == 0) {
             double taxa = valorSaque * TAXA_TRANSFERENCIA;
+            if (saldo <=0) {
+                throw new TaxaExeception("Saldo zerado, o valor será descontado a partir do dia X. Valor de taxa é de:  ", saldo);
+            }
             this.saldo -= taxa;
-
         }
     }
 
@@ -113,11 +123,4 @@ public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Va
         return Objects.hash(totalSaques, agencia, numero, saldo);
     }
 
-    public void validar() {
-        if (this.numero > 999) {
-            System.out.println("Número da conta está no formato válido (4 dígitos).");
-        } else {
-            System.out.println("Número inválido: deve ter 4 dígitos.");
-        }
-    }
 }

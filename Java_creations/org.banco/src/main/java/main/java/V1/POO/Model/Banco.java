@@ -46,10 +46,6 @@ public class Banco {
         }
         return vinculados;
     }
-
-    //    //Trabalha em conjunto com excluirConta
-   // Exclui conta do map<Cliente,Conta> que estão vinculados
-    // Exclui conta vinculada a um cliente
     public void excluirContaVinculada(int numeroConta) {
         for (List<Conta> lista : contasPorCliente.values()) {
             lista.removeIf(c -> c.getNumero() == numeroConta);

@@ -1,10 +1,10 @@
 package main.java.V1.POO.Model;
 
-import main.java.V1.POO.Service.BancoService;
+import main.java.V1.POO.Exception.DominioException;
 
 import java.util.Objects;
 
-public class Cliente implements Comparable<Cliente>, BancoService.Validavel {
+public class Cliente implements Comparable<Cliente> {
     private String  nome;
     private final String login;
 
@@ -32,6 +32,27 @@ public class Cliente implements Comparable<Cliente>, BancoService.Validavel {
 
 
     public Cliente(String CPF, String nome, String login, String email) {
+           // (exemplo: 11 dígitos)
+           if (CPF == null || CPF.length() != 11) {
+               throw new DominioException("CPF deve ter exatamente 11 dígitos.");
+           }
+
+           //(mínimo 3 caracteres)
+           if (nome == null || nome.length() < 3) {
+               throw new DominioException("Nome deve ter pelo menos 3 caracteres. O nome digitado foi: -> " + nome+ ".");
+           }
+
+           //(mínimo 5 caracteres e conter '.')
+           if (login == null || login.length() <= 5 || !login.contains(".")) {
+               throw new DominioException("Login deve ter pelo menos 5 caracteres e conter '.'");
+           }
+
+           //V2- Interessante verificar com alguma API ou serviço
+           //Provedor min 2 digitos e existe @ no conteúdo
+           if (email == null || !email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+               throw new DominioException("Email inválido.");
+           }
+
         this.CPF = CPF;
         this.nome = nome;
         this.login = login;
@@ -74,14 +95,14 @@ public class Cliente implements Comparable<Cliente>, BancoService.Validavel {
 
 
 
-    public void validar() {
-        if (CPF == null || CPF.isEmpty()) {
-            System.out.println("CPF inválido - CPF deve conter 11 números");
-        } else {
-            System.out.println("Cliente válido: " + CPF);
-        }
-
-    }
+//    public void validar() {
+//        if (CPF == null || CPF.isEmpty()) {
+//            System.out.println("CPF inválido - CPF deve conter 11 números");
+//        } else {
+//            System.out.println("Cliente válido: " + CPF);
+//        }
+//
+//    }
 
 }
 
