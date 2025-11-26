@@ -1,11 +1,12 @@
 package main.java.V1.POO.Model;
 
 
+import main.java.V1.POO.Service.BancoService;
 import main.java.V2.JDBC.Model.interfaces.Iconta;
 
 import java.util.Objects;
 
-public abstract class Conta implements Iconta,Comparable<Conta> {
+public abstract class Conta implements Iconta,Comparable<Conta>, BancoService.Validavel {
     private static final int AGENCIA_PADRAO = 1272;
     private static int SEQUENCIAL = 1000;
     private static final double TAXA_SAQUE = 0.05; //5%
@@ -14,7 +15,6 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
     private final Cliente cliente;
     private int totalSaques;
 
-    
 
     public Conta(Cliente cliente) {
         this.agencia = AGENCIA_PADRAO; //trocar aqui dentro de um serviceConta e passando o contador no construtor
@@ -73,7 +73,6 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
         destino.deposito(valor);
     }
 
-
     protected void imprimirInfosComuns() {
         System.out.println("Nome : " + this.cliente.getNome());
         System.out.println("Agencia : " + this.agencia);
@@ -82,16 +81,16 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
     }
 
 
-    public void aplicarTaxaSaque(double valorSaque){
-        if(totalSaques > 0 && totalSaques % 3 == 0){
+    public void aplicarTaxaSaque(double valorSaque) {
+        if (totalSaques > 0 && totalSaques % 3 == 0) {
             double taxa = valorSaque * TAXA_SAQUE;
             this.saldo -= taxa;
 
         }
     }
 
-    public void aplicarTaxaTransferencia(double valorSaque){
-        if(totalSaques > 0 && totalSaques % 6 == 0){
+    public void aplicarTaxaTransferencia(double valorSaque) {
+        if (totalSaques > 0 && totalSaques % 6 == 0) {
             double taxa = valorSaque * TAXA_TRANSFERENCIA;
             this.saldo -= taxa;
 
@@ -113,6 +112,12 @@ public abstract class Conta implements Iconta,Comparable<Conta> {
     public int hashCode() {
         return Objects.hash(totalSaques, agencia, numero, saldo);
     }
+
+    public void validar() {
+        if (this.numero > 999) {
+            System.out.println("Número da conta está no formato válido (4 dígitos).");
+        } else {
+            System.out.println("Número inválido: deve ter 4 dígitos.");
+        }
+    }
 }
-
-

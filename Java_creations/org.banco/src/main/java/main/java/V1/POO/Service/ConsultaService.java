@@ -20,24 +20,27 @@ public class ConsultaService {
         banco.getContas().forEach(ct ->
                 System.out.println("Conta: " + ct.getNumero() + " | Saldo: " + ct.getSaldo()));
     }
-    // Top 3 maiores saldos
+    // Top 3 saldos
     public List<String> top3Saldos() {
-        return banco.getContas().stream()
+        List<Conta> copiaContas = new ArrayList<>(banco.getContas());
+        return copiaContas.stream()
                 .sorted(Comparator.comparing(Conta::getSaldo).reversed())
                 .limit(3)
-                .map(c -> String.format("Conta %d | Saldo: %.2f", c.getNumero(), c.getSaldo()))
-                .collect(Collectors.toList());
+                .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
+                .toList();
     }
 
-    // Ordena todas as contas por saldo decrescente
-    public List<String> ordenarPorSaldo() {
-        return banco.getContas().stream()
+    // Ordenar por saldo
+    public List<String> ordenaPorSaldo() {
+        List<Conta> ordemSaldo = new ArrayList<>(banco.getContas());
+        return ordemSaldo.stream()
                 .sorted(Comparator.comparing(Conta::getSaldo).reversed())
-                .map(c -> String.format("Conta %d | Saldo: %.2f", c.getNumero(), c.getSaldo()))
-                .collect(Collectors.toList());
+                .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
+                .toList();
     }
 
-    // Consulta contas vinculadas a clientes
+
+    // Consultar funcionamento
     public List<String> contasPorCliente(Map<Cliente, List<Conta>> contasPorCliente) {
         return contasPorCliente.entrySet().stream()
                 .map(entry -> String.format("Cliente: %s | Contas: %s",
@@ -47,4 +50,26 @@ public class ConsultaService {
                                 .collect(Collectors.joining(", "))))
                 .collect(Collectors.toList());
     }
+    // Buscar conta por número
+    public Conta buscaPorConta(int numeroConta) {
+        for (Conta c : banco.getContas()) {
+            if (c.getNumero() == numeroConta) {
+                return c;
+            }
+        }
+        System.out.println("Conta não existe.");
+        return null;
+    }
+
+    // Buscar cliente por CPF
+    public Cliente buscarClientePorCpf(String cpf) {
+        for (Cliente c : banco.getClientes()) {
+            if (c.getCPF().equals(cpf)) {
+                return c;
+            }
+        }
+        System.out.println("CPF não existe na base.");
+        return null;
+    }
+
 }

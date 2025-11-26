@@ -1,8 +1,10 @@
 package main.java.V1.POO.Model;
 
+import main.java.V1.POO.Service.BancoService;
+
 import java.util.Objects;
 
-public class Cliente implements Comparable<Cliente> {
+public class Cliente implements Comparable<Cliente>, BancoService.Validavel {
     private String  nome;
     private final String login;
 
@@ -70,6 +72,16 @@ public class Cliente implements Comparable<Cliente> {
         return 0;
     }
 
+
+
+    public void validar() {
+        if (CPF == null || CPF.isEmpty()) {
+            System.out.println("CPF inválido - CPF deve conter 11 números");
+        } else {
+            System.out.println("Cliente válido: " + CPF);
+        }
+
+    }
 
 }
 
