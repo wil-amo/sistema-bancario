@@ -5,13 +5,13 @@ import main.java.V1.POO.Model.Conta;
 
 public interface Iconta {
 
-    void  deposito(double valor);
+    void deposito(double valor);
+
     void saque(double valor);
+
     void transferencia(double valor, Conta destino);
-    void imprimirExtrato();
+
     void aplicarTaxaSaque(double valor);
+
     void aplicarTaxaTransferencia(double valor);
-
-
-
 }

@@ -2,13 +2,13 @@ package main.java.V1.POO.Model;
 
 
 import main.java.V1.POO.Exception.InvalidContaException;
-import main.java.V1.POO.Exception.TaxaExeception;
 import main.java.V1.POO.Exception.MovimentacaoInvalidaException;
-import main.java.V2.JDBC.Model.interfaces.Iconta;
+import main.java.V1.POO.Exception.TaxaExeception;
+import main.java.V1.POO.Model.interfaces.Iconta;
 
 import java.util.Objects;
 
-public abstract class Conta implements Iconta,Comparable<Conta>{
+public abstract class Conta implements Iconta, Comparable<Conta> {
     private static final int AGENCIA_PADRAO = 1272;
     private static int SEQUENCIAL = 1000;
     private static final double TAXA_SAQUE = 0.05; //5%
@@ -19,10 +19,10 @@ public abstract class Conta implements Iconta,Comparable<Conta>{
 
 
     public Conta(Cliente cliente) {
-        if (cliente.getCPF() == null && cliente.getLogin() ==null){
-            throw new InvalidContaException("CPF ou Login são possuem dados " + cliente.getCPF() +" "+ cliente.getLogin());
+        if (cliente.getCPF() == null || cliente.getLogin() == null) {
+            throw new InvalidContaException("CPF ou Login são possuem dados " + cliente.getCPF() + " " + cliente.getLogin());
         }
-        this.agencia = AGENCIA_PADRAO; //trocar aqui dentro de um serviceConta e passando o contador no construtor
+        this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.cliente = cliente;
         this.saldo = Math.round(Math.random() * 10000 * 100) / 100.0; //para 2 casas decimais saldo / 100
@@ -78,30 +78,23 @@ public abstract class Conta implements Iconta,Comparable<Conta>{
         destino.deposito(valor);
     }
 
-    protected void imprimirInfosComuns() {
-        System.out.println("Nome : " + this.cliente.getNome());
-        System.out.println("Agencia : " + this.agencia);
-        System.out.println("Numero : " + this.numero);
-        System.out.printf("Saldo : %.2f%n", this.saldo);
-    }
-
 
     public void aplicarTaxaSaque(double valorSaque) {
         if (totalSaques > 0 && totalSaques % 3 == 0) {
             double taxa = valorSaque * TAXA_SAQUE;
-            if (saldo <=0) {
-                throw new TaxaExeception("Saldo zerado, o valor será descontado a partir do dia X. Valor de taxa é de:  ", saldo);
+            if (saldo <= 0) {
+                throw new TaxaExeception("Saldo zerado", saldo);
             }
             this.saldo -= taxa;
 
         }
     }
 
-    public void aplicarTaxaTransferencia(double valorSaque) {
+    public void aplicarTaxaTransferencia(double valorTransferencia) {
         if (totalSaques > 0 && totalSaques % 6 == 0) {
-            double taxa = valorSaque * TAXA_TRANSFERENCIA;
-            if (saldo <=0) {
-                throw new TaxaExeception("Saldo zerado, o valor será descontado a partir do dia X. Valor de taxa é de:  ", saldo);
+            double taxa = valorTransferencia * TAXA_TRANSFERENCIA;
+            if (saldo <= 0) {
+                throw new TaxaExeception("Saldo zerado", saldo);
             }
             this.saldo -= taxa;
         }

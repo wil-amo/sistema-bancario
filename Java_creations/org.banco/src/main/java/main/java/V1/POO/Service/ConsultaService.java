@@ -1,28 +1,30 @@
 package main.java.V1.POO.Service;
 
-import main.java.V1.POO.Model.*;
+import main.java.V1.POO.Model.Cliente;
+import main.java.V1.POO.Model.Conta;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ConsultaService {
-    private Banco banco;
+    private BancoService bancoService;
 
-    public ConsultaService(Banco banco) {
-        this.banco = banco;
+    //consulta para utilizar em usuários comuns
+    public ConsultaService(BancoService bancoService) {
+        this.bancoService = bancoService;
     }
+
     public void imprimirClientes() {
-        banco.getClientes().forEach(c ->
+        bancoService.listarClientes().forEach(c ->
                 System.out.println("Cliente: " + c.getNome() + " | CPF: " + c.getCPF()));
     }
 
     public void imprimirContas() {
-        banco.getContas().forEach(ct ->
+        bancoService.listarContas().forEach(ct ->
                 System.out.println("Conta: " + ct.getNumero() + " | Saldo: " + ct.getSaldo()));
     }
-    // Top 3 saldos
+
     public List<String> top3Saldos() {
-        List<Conta> copiaContas = new ArrayList<>(banco.getContas());
+        List<Conta> copiaContas = new ArrayList<>(bancoService.listarContas());
         return copiaContas.stream()
                 .sorted(Comparator.comparing(Conta::getSaldo).reversed())
                 .limit(3)
@@ -30,9 +32,9 @@ public class ConsultaService {
                 .toList();
     }
 
-    // Ordenar por saldo
+
     public List<String> ordenaPorSaldo() {
-        List<Conta> ordemSaldo = new ArrayList<>(banco.getContas());
+        List<Conta> ordemSaldo = new ArrayList<>(bancoService.listarContas());
         return ordemSaldo.stream()
                 .sorted(Comparator.comparing(Conta::getSaldo).reversed())
                 .map(conta -> String.format("Conta %d - Saldo: %.2f", conta.getNumero(), conta.getSaldo()))
@@ -40,36 +42,14 @@ public class ConsultaService {
     }
 
 
-    // Consultar funcionamento
-    public List<String> contasPorCliente(Map<Cliente, List<Conta>> contasPorCliente) {
-        return contasPorCliente.entrySet().stream()
-                .map(entry -> String.format("Cliente: %s | Contas: %s",
-                        entry.getKey().getNome(),
-                        entry.getValue().stream()
-                                .map(c -> String.valueOf(c.getNumero()))
-                                .collect(Collectors.joining(", "))))
-                .collect(Collectors.toList());
-    }
-    // Buscar conta por número
-    public Conta buscaPorConta(int numeroConta) {
-        for (Conta c : banco.getContas()) {
-            if (c.getNumero() == numeroConta) {
-                return c;
-            }
+    public List<Conta> buscarContasPorCpf(String cpf) {
+        for (Map.Entry<Cliente, List<Conta>> entry : bancoService.listarContasClientes().entrySet()) {
+            Cliente cliente = entry.getKey();
+            if (cliente.getCPF().equals(cpf)) {
+                return entry.getValue();
+                 }
         }
-        System.out.println("Conta não existe.");
-        return null;
-    }
-
-    // Buscar cliente por CPF
-    public Cliente buscarClientePorCpf(String cpf) {
-        for (Cliente c : banco.getClientes()) {
-            if (c.getCPF().equals(cpf)) {
-                return c;
-            }
-        }
-        System.out.println("CPF não existe na base.");
-        return null;
+        return Collections.emptyList();
     }
 
 }

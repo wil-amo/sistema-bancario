@@ -1,21 +1,20 @@
 package main.java.V1.POO.Model;
 
+import main.java.V1.POO.Model.Cliente;
+import main.java.V1.POO.Model.Conta;
+
 public class ContaPoupanca extends Conta {
 
     public ContaPoupanca(Cliente cliente) {
         super(cliente);
-        cliente.setConta(this); //vincula essa conta ao cliente
+        cliente.setConta(this);
+        super.saldo = 0;
     }
 
     @Override
-    public void transferencia(double valor, main.java.V2.JDBC.Model.Conta destino) {
+    public void transferencia(double valor, Conta destino) {
     }
 
-    @Override
-    public void imprimirExtrato() {
-        System.out.println("==== EXTRATO CONTA POUPANÇA ====");
-        imprimirInfosComuns();
-    }
 
     @Override
     public String toString() {

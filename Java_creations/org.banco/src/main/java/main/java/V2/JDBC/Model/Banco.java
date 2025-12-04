@@ -1,4 +1,3 @@
-package main.java.V2.JDBC.Model;
 
 import java.util.*;
 import java.util.stream.Collectors;

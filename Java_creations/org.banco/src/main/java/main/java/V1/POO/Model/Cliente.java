@@ -69,8 +69,10 @@ public class Cliente implements Comparable<Cliente> {
 
     @Override
     public String toString() {
-        return String.format("Cliente: %s | CPF: %s | Login: %s | Número Conta: %d ", nome, CPF, login, conta.getNumero());
+        return String.format("Cliente: %s | CPF: %s | Login: %s "+ "\n", nome, CPF, login);
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -93,16 +95,6 @@ public class Cliente implements Comparable<Cliente> {
         return 0;
     }
 
-
-
-//    public void validar() {
-//        if (CPF == null || CPF.isEmpty()) {
-//            System.out.println("CPF inválido - CPF deve conter 11 números");
-//        } else {
-//            System.out.println("Cliente válido: " + CPF);
-//        }
-//
-//    }
 
 }
 

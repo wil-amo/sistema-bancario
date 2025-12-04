@@ -9,19 +9,17 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public void transferencia(double valor, main.java.V2.JDBC.Model.Conta destino) {
-
+    public void transferencia(double valor,Conta destino) {
     }
 
-    @Override
-    public void imprimirExtrato() {
-        System.out.println("==== EXTRATO CONTA CORRENTE ====");
-        imprimirInfosComuns();
-    }
+//    @Override
+//    public void imprimirExtrato() {
+//        System.out.println("==== EXTRATO CONTA CORRENTE ====");
+//    }
 
     @Override
     public String toString() {
-        return String.format("ContaCorrente{cliente='%s', agencia=%d, numero=%d, saldo=%.2f}\n",
+        return String.format("ContaCorrente{Cliente: %s | Agencia: %d | Numero: %d | Saldo: %.2f \n",
                 super.getCliente().getNome(), super.getAgencia(), super.getNumero(), super.getSaldo());
     }
 

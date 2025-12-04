@@ -12,8 +12,8 @@ public class BancoService {
         }
 
     // Listagens
-    public List<String> listarContasClientes() {
-        return List.copyOf(banco.listarContasEClientes());
+    public Map<Cliente, List<Conta>> listarContasClientes() {
+        return banco.getContasPorCliente(); //remove o lis da saida removi o copy para testar consultaPorcpf no clienteservice
     }
 
     public List<Cliente> listarClientes() {
@@ -28,17 +28,24 @@ public class BancoService {
         banco.addCliente(cliente);
     }
 
+
     // Adicionar conta vinculada a cliente
     public void adicionarConta(Cliente cliente, Conta conta) {
         banco.vinculaContaECliente(cliente, conta);
+
     }
 
-    public void excluirConta(int numeroConta) {
-        boolean removida = banco.removerConta(numeroConta);
-        if (removida) {
-            System.out.println("Conta " + numeroConta + " removida com sucesso.");
-        } else {
-            System.out.println("Conta " + numeroConta + " não encontrada.");
+    public void excluiConta(int numeroConta) {
+        banco.excluiConta(numeroConta);
+    }
+
+    public List<Conta> buscarContasPorCpf(String cpf) {
+        for (Map.Entry<Cliente, List<Conta>> entry : banco.getContasPorCliente().entrySet()) {
+            Cliente cliente = entry.getKey();
+            if (cliente.getCPF().equals(cpf)) {
+                return entry.getValue();
+            }
         }
+        return Collections.emptyList();
     }
 }

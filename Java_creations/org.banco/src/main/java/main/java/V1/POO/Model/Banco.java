@@ -17,8 +17,9 @@ public class Banco {
     public List<Cliente> getClientes() { return clientes; }
     public List<Conta> getContas() { return contas; }
 
-    // cliente pode ter várias contas
-    private Map<Cliente, List<Conta>> contasPorCliente;
+    // 1 cliente pode ter várias contas
+     private Map<Cliente, List<Conta>> contasPorCliente;
+
     public Map<Cliente, List<Conta>> getContasPorCliente() { return contasPorCliente; }
 
     // Vincula cliente e conta (agora adiciona na lista)
@@ -29,8 +30,6 @@ public class Banco {
             contas.add(conta);
     }
 
-
-    // Exibe formatado todas as contas vinculadas
     public List<String> listarContasEClientes() {
         List<String> vinculados = new ArrayList<>();
         for (Map.Entry<Cliente, List<Conta>> entry : contasPorCliente.entrySet()) {
@@ -46,7 +45,7 @@ public class Banco {
         }
         return vinculados;
     }
-    public void excluirContaVinculada(int numeroConta) {
+    public void excluiConta(int numeroConta) {
         for (List<Conta> lista : contasPorCliente.values()) {
             lista.removeIf(c -> c.getNumero() == numeroConta);
         }
@@ -62,11 +61,5 @@ public class Banco {
         contas.add(conta);
     }
 
-    //Verificar alguns pontos
-    public boolean removerConta(int numeroConta) {
-        boolean removed = contas.removeIf(c -> c.getNumero() == numeroConta);
-        contasPorCliente.values().forEach(lista -> lista.removeIf(c -> c.getNumero() == numeroConta));
-        return removed;
-    }
 }
 
