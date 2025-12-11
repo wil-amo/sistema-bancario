@@ -11,41 +11,42 @@ public class BancoService {
             this.banco = banco;
         }
 
-    // Listagens
-    public Map<Cliente, List<Conta>> listarContasClientes() {
-        return banco.getContasPorCliente(); //remove o lis da saida removi o copy para testar consultaPorcpf no clienteservice
-    }
-
-    public List<Cliente> listarClientes() {
-        return List.copyOf(banco.getClientes());
-    }
-
-    public List<Conta> listarContas() {
-        return List.copyOf(banco.getContas());
-    }
-
-    public void adicionarCliente(Cliente cliente) {
-        banco.addCliente(cliente);
+    public List<String> mostrarContasDoCliente(String cpf) {
+        List<Conta> contas = banco.listarContasPorCliente(cpf);
+        List<String> resultado = new ArrayList<>();
+        for (Conta conta : contas) {
+            resultado.add(String.format("Cliente: %s | Conta: %d | Agência: %d | Saldo: %.2f",
+                    conta.getCliente().getNome(),
+                    conta.getNumero(),
+                    conta.getAgencia(),
+                    conta.getSaldo()));
+        }
+        System.out.println("\nAs contas do CPF digitado são:");
+        return resultado;
     }
 
 
-    // Adicionar conta vinculada a cliente
-    public void adicionarConta(Cliente cliente, Conta conta) {
-        banco.vinculaContaECliente(cliente, conta);
 
-    }
-
-    public void excluiConta(int numeroConta) {
-        banco.excluiConta(numeroConta);
-    }
-
-    public List<Conta> buscarContasPorCpf(String cpf) {
-        for (Map.Entry<Cliente, List<Conta>> entry : banco.getContasPorCliente().entrySet()) {
+    public void mostrarContasEClientes() {
+        Map<Cliente, List<Conta>> dados = banco.listarContasEClientes();
+        System.out.println("\nListando clientes e contas atuais do banco: ");
+        for (Map.Entry<Cliente, List<Conta>> entry : dados.entrySet()) {
             Cliente cliente = entry.getKey();
-            if (cliente.getCPF().equals(cpf)) {
-                return entry.getValue();
+            for (Conta conta : entry.getValue()) {
+                System.out.printf("Cliente: %s | CPF: %s | Conta: %d | Agência: %d | Saldo: %.2f%n",
+                        cliente.getNome(),
+                        cliente.getCPF(),
+                        conta.getNumero(),
+                        conta.getAgencia(),
+                        conta.getSaldo());
             }
         }
-        return Collections.emptyList();
     }
+
+
+
+    public void excluirConta(int numeroConta){
+            banco.excluiConta(numeroConta);
+    }
+
 }

@@ -69,7 +69,7 @@ public class Cliente implements Comparable<Cliente> {
 
     @Override
     public String toString() {
-        return String.format("Cliente: %s | CPF: %s | Login: %s "+ "\n", nome, CPF, login);
+        return String.format("Nome: %s | CPF: %s | Login: %s | Email: %s"+ "\n", nome, CPF, login, email);
     }
 
 

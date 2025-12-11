@@ -11,19 +11,19 @@ public class ContaPoupanca extends Conta {
         super.saldo = 0;
     }
 
-    @Override
-    public void transferencia(double valor, Conta destino) {
-    }
+//    @Override
+//    public void transferencia( double valor, Conta destino) {
+//    }
 
 
     @Override
     public String toString() {
-        return String.format("ContaPoupanca{cliente='%s', agencia=%d, numero=%d, saldo=%.2f}",
+        return String.format("ContaPoupanca{Cliente: %s | Agencia: %d | Numero: %d | Saldo: %.2f \n",
                 super.getCliente().getNome(), super.getAgencia(), super.getNumero(), super.getSaldo());
     }
 
     @Override
     public int compareTo(Conta o) {
-        return 0;
+        return Double.compare(this.getSaldo(), o.getSaldo());
     }
 }

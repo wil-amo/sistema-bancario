@@ -1,32 +1,37 @@
 package main.java.V1.POO.Service;
 
+import main.java.V1.POO.Model.Banco;
 import main.java.V1.POO.Model.Conta;
+import main.java.V1.POO.Model.interfaces.Iconta;
 
 public class ContaService {
-    private Conta conta;
+    private Banco banco;
 
-    public ContaService(Conta conta) {
-        this.conta = conta;
+    public ContaService(Banco banco) {
+        this.banco=banco;
     }
 
-    public void depositar(double valor) {
+    //IConta sendo utilizado para mais flexibilidade ex: criação de ContaDigital
+    public void criaConta(String cpf , Iconta conta){
+        banco.addConta(cpf,conta);
+    }
+
+    public void depositar(double valor, Iconta conta) {
         conta.deposito(valor);
-        System.out.println("Depósito de " + valor + " realizado na conta " + conta.getNumero() +
-                ". Saldo atual: " + conta.getSaldo());
+        System.out.println("Depósito de " + valor + " realizado na conta " + ((Conta) conta).getNumero() +
+                ". Saldo atual: " + ((Conta) conta).getSaldo());
     }
 
-    public void sacar(double valor) {
+    public void sacar(double valor, Iconta conta) {
         conta.saque(valor);
-        System.out.println("Saque de " + valor + " realizado na conta " + conta.getNumero() +
-                ". Saldo atual: " + conta.getSaldo());
+        System.out.println("Saque de " + valor + " realizado na conta " + ((Conta) conta).getNumero() +
+                ". Saldo atual: " + ((Conta) conta).getSaldo());
     }
 
-    public void transferir(double valor, Conta destino) {
-        conta.transferencia(valor, destino);
-        System.out.println("Transferência de " + valor + " da conta " + conta.getNumero() +
-                " para conta " + destino.getNumero());
-        System.out.println("Saldo origem: " + conta.getSaldo() + " | Saldo destino: " + destino.getSaldo());
+    public void transferir(Iconta atual , double valor, Iconta destino) {
+        System.out.println("Transferência de " + valor + " da conta " + ((Conta) atual).getNumero() +
+                " para conta " + ((Conta) destino).getNumero());
+                    atual.transferencia(valor,((Conta) destino));
+                        System.out.println("Saldo origem: " + ((Conta) atual).getSaldo() + " | Saldo destino: " + ((Conta) destino).getSaldo());
     }
-
-
 }

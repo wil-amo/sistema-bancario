@@ -8,9 +8,9 @@ public class ContaCorrente extends Conta {
         cliente.setConta(this); // vincula cliente à conta corrente
     }
 
-    @Override
-    public void transferencia(double valor,Conta destino) {
-    }
+//    @Override
+//    public void transferencia(double valor,Conta destino) {
+//    }
 
 //    @Override
 //    public void imprimirExtrato() {
@@ -25,6 +25,6 @@ public class ContaCorrente extends Conta {
 
     @Override
     public int compareTo(Conta o) {
-        return 0;
+        return Double.compare(this.getSaldo(), o.getSaldo());
     }
 }
