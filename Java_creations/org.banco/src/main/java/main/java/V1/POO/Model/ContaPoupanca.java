@@ -11,11 +11,6 @@ public class ContaPoupanca extends Conta {
         super.saldo = 0;
     }
 
-//    @Override
-//    public void transferencia( double valor, Conta destino) {
-//    }
-
-
     @Override
     public String toString() {
         return String.format("ContaPoupanca{Cliente: %s | Agencia: %d | Numero: %d | Saldo: %.2f \n",

@@ -19,6 +19,9 @@ public abstract class Conta implements Iconta, Comparable<Conta> {
 
 
     public Conta(Cliente cliente) {
+        if (cliente == null) {
+            throw new InvalidContaException("Cliente não pode ser nulo");
+        }
         if (cliente.getCPF() == null || cliente.getLogin() == null) {
             throw new InvalidContaException("CPF ou Login são possuem dados " + cliente.getCPF() + " " + cliente.getLogin());
         }

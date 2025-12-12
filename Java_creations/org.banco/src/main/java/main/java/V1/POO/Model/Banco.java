@@ -3,7 +3,6 @@ package main.java.V1.POO.Model;
 import main.java.V1.POO.Exception.InvalidContaException;
 import main.java.V1.POO.Model.interfaces.Iconta;
 
-import javax.swing.*;
 import java.util.*;
 
 public class Banco {
@@ -19,13 +18,9 @@ public class Banco {
         this.contasPorCpf = new HashMap<>();
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public List<Conta> getContas() {
-        return contas;
-    }
+//    public List<Conta> getContas() {
+//        return contas;
+//    }
 
     public Map<String, Cliente> getClientesPorCpf() {
         return clientesPorCpf;

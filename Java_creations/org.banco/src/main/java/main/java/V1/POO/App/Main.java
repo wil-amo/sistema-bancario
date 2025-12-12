@@ -14,17 +14,21 @@ public class Main {
         BancoService bancoService = new BancoService(banco);
 
         //Clientes
+        System.out.println("Adicionando clientes...");
         ClienteService clienteService = new ClienteService(banco);
         clienteService.criaCliente(new Cliente("12345678901", "Cesar", "Cesar.Rosa", "Cesar-Rosa@gmail.com"));
         clienteService.criaCliente(new Cliente("09876543210", "Paulo", "Paulo.Santos", "Paulo-Santos@gmail.com"));
         clienteService.criaCliente(new Cliente("00000000000", "Ale", "Ale.Jordan", "Ale-Jordan@gmail.com"));
+        System.out.println("\nAdicionando cliente com mesmo CPF...");
         clienteService.criaCliente(new Cliente("00000000000", "Ale", "Ale.Jordan", "Ale-Jordan@gmail.com"));
 
-        Cliente cliente1 = banco.getClientesPorCpf().get("12345678901");
-        Cliente cliente2 = banco.getClientesPorCpf().get("09876543210");
-        Cliente cliente3 = banco.getClientesPorCpf().get("00000000000");
+
+        Cliente cliente1 = clienteService.safeGetCliente("09876543210");
+        Cliente cliente2 = clienteService.safeGetCliente("00000000000");
+        Cliente cliente3 = clienteService.safeGetCliente("12345678901");
 
         //Contas
+        System.out.println("\nAdicionando contas utilizando clientes existentes...");
         Conta conta1 = new ContaCorrente(cliente1);
         Conta conta2 = new ContaPoupanca(cliente2);
         Conta conta3 = new ContaPoupanca(cliente3);
@@ -37,16 +41,15 @@ public class Main {
         contaService1.criaConta(conta3.getCliente().getCPF(), conta3);
         contaService1.criaConta(conta3.getCliente().getCPF(), conta4);
 
-
-
+        bancoService.mostrarContasEClientes();
 
         //Operações
+        System.out.println("\nIniciando operações ....");
         contaService1.depositar(500, conta1);
         contaService1.sacar(1000, conta1);
         contaService1.depositar(100, conta2);
         contaService1.transferir(conta1, 200, conta2);
 
-        //Atualiza cliente
         if (clienteService.atualizaCliente("00000000000",
                 new Cliente("00000000000", "Ramon", "Ramon.login", "Ramon@gmail.com"))){
             System.out.println("Cliente atualizado com sucesso!");
@@ -58,14 +61,10 @@ public class Main {
         for (String linha : bancoService.mostrarContasDoCliente("00000000000")) {
             System.out.println(linha);
         }
+
+        System.out.println("\nContas totais no banco: " + bancoService.totalContas());
         bancoService.excluirConta(conta3.getNumero());
-
         bancoService.mostrarContasEClientes();
-
-
-        //Consultas
-//                System.out.println("Contas do CPF 12345678901:");
-//                System.out.println(bancoService.buscarContasPorCpf("12345678901"));
 
 
     }

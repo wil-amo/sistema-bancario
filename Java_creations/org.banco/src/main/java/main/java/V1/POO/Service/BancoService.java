@@ -44,6 +44,17 @@ public class BancoService {
     }
 
 
+    public int totalContas() {
+        return banco.getContasPorCpf()
+                        .values()
+                            .stream()
+                                .mapToInt(List::size)
+                                        .sum();
+    }
+
+
+
+
 
     public void excluirConta(int numeroConta){
             banco.excluiConta(numeroConta);

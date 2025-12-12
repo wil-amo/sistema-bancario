@@ -18,20 +18,20 @@ public class ContaService {
 
     public void depositar(double valor, Iconta conta) {
         conta.deposito(valor);
-        System.out.println("Depósito de " + valor + " realizado na conta " + ((Conta) conta).getNumero() +
-                ". Saldo atual: " + ((Conta) conta).getSaldo());
+        System.out.printf("Depósito de: %.2f realizado na conta: %d e Saldo atual é : %.2f\n", valor,  ((Conta) conta).getNumero(), ((Conta) conta).getSaldo());
+
+
     }
 
     public void sacar(double valor, Iconta conta) {
         conta.saque(valor);
-        System.out.println("Saque de " + valor + " realizado na conta " + ((Conta) conta).getNumero() +
-                ". Saldo atual: " + ((Conta) conta).getSaldo());
+        System.out.printf("Saque de: %.2f realizado na conta: %d e Saldo atual é : %.2f\n", valor,  ((Conta) conta).getNumero(), ((Conta) conta).getSaldo());
+
     }
 
     public void transferir(Iconta atual , double valor, Iconta destino) {
-        System.out.println("Transferência de " + valor + " da conta " + ((Conta) atual).getNumero() +
-                " para conta " + ((Conta) destino).getNumero());
-                    atual.transferencia(valor,((Conta) destino));
-                        System.out.println("Saldo origem: " + ((Conta) atual).getSaldo() + " | Saldo destino: " + ((Conta) destino).getSaldo());
+        System.out.printf("Transferência de: %.2f da conta: %d  para a conta: %d", valor,  ((Conta) atual).getNumero(), ((Conta) destino).getNumero());
+        atual.transferencia(valor,((Conta) destino));
+                        System.out.printf(" -> Saldo origem: %.2f | Saldo destino: %.2f" , ((Conta) atual).getSaldo(), ((Conta) destino).getSaldo());
     }
 }

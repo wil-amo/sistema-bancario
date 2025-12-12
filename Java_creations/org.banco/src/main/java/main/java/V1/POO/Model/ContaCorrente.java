@@ -8,15 +8,6 @@ public class ContaCorrente extends Conta {
         cliente.setConta(this); // vincula cliente à conta corrente
     }
 
-//    @Override
-//    public void transferencia(double valor,Conta destino) {
-//    }
-
-//    @Override
-//    public void imprimirExtrato() {
-//        System.out.println("==== EXTRATO CONTA CORRENTE ====");
-//    }
-
     @Override
     public String toString() {
         return String.format("ContaCorrente{Cliente: %s | Agencia: %d | Numero: %d | Saldo: %.2f \n",
