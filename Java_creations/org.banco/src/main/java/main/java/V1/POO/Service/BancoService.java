@@ -11,7 +11,15 @@ public class BancoService {
             this.banco = banco;
         }
 
-    public List<String> mostrarContasDoCliente(String cpf) {
+    public Map<String, Cliente> getClientesPorCpf(){
+        return banco.getClientesPorCpf();
+    }
+
+    public Map<String, List<Conta>> getContasPorCpf(){
+        return banco.getContasPorCpf();
+    }
+
+        public List<String> mostrarContasDoCliente(String cpf) {
         List<Conta> contas = banco.listarContasPorCliente(cpf);
         List<String> resultado = new ArrayList<>();
         for (Conta conta : contas) {
@@ -24,7 +32,6 @@ public class BancoService {
         System.out.println("\nAs contas do CPF digitado são:");
         return resultado;
     }
-
 
 
     public void mostrarContasEClientes() {
@@ -51,9 +58,6 @@ public class BancoService {
                                 .mapToInt(List::size)
                                         .sum();
     }
-
-
-
 
 
     public void excluirConta(int numeroConta){

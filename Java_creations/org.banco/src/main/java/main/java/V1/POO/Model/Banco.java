@@ -18,10 +18,6 @@ public class Banco {
         this.contasPorCpf = new HashMap<>();
     }
 
-//    public List<Conta> getContas() {
-//        return contas;
-//    }
-
     public Map<String, Cliente> getClientesPorCpf() {
         return clientesPorCpf;
     }

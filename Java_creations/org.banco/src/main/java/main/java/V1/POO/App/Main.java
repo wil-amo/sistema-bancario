@@ -3,6 +3,7 @@ package main.java.V1.POO.App;
 import main.java.V1.POO.Model.*;
 import main.java.V1.POO.Service.BancoService;
 import main.java.V1.POO.Service.ClienteService;
+import main.java.V1.POO.Service.ConsultaService;
 import main.java.V1.POO.Service.ContaService;
 import main.java.V1.POO.Model.Conta;
 
@@ -28,7 +29,7 @@ public class Main {
         Cliente cliente3 = clienteService.safeGetCliente("12345678901");
 
         //Contas
-        System.out.println("\nAdicionando contas utilizando clientes existentes...");
+        System.out.println("\nCriando contas...");
         Conta conta1 = new ContaCorrente(cliente1);
         Conta conta2 = new ContaPoupanca(cliente2);
         Conta conta3 = new ContaPoupanca(cliente3);
@@ -66,6 +67,10 @@ public class Main {
         bancoService.excluirConta(conta3.getNumero());
         bancoService.mostrarContasEClientes();
 
+        //Classe apenas consulta
+        ConsultaService consultaService = new ConsultaService(bancoService);
+        consultaService.clientesOrdenadoPorCPF();
+        consultaService.clientesOrdenadoPornome();
 
     }
 }

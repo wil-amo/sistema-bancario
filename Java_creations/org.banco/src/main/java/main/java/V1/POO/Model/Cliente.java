@@ -92,7 +92,7 @@ public class Cliente implements Comparable<Cliente> {
 
     @Override
     public int compareTo(Cliente o) {
-        return 0;
+        return this.nome.compareToIgnoreCase(o.nome);
     }
 
 
