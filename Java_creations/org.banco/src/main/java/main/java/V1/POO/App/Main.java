@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Adicionando clientes...");
         ClienteService clienteService = new ClienteService(banco);
         clienteService.criaCliente(new Cliente("12345678901", "Cesar", "Cesar.Rosa", "Cesar-Rosa@gmail.com"));
-        clienteService.criaCliente(new Cliente("09876543210", "Paulo", "Paulo.Santos", "Paulo-Santos@gmail.com"));
+        clienteService.criaCliente(new Cliente("09876543210", "Mario", "Mario.Santos", "Mario-Santos@gmail.com"));
         clienteService.criaCliente(new Cliente("00000000000", "Ale", "Ale.Jordan", "Ale-Jordan@gmail.com"));
         System.out.println("\nAdicionando cliente com mesmo CPF...");
         clienteService.criaCliente(new Cliente("00000000000", "Ale", "Ale.Jordan", "Ale-Jordan@gmail.com"));
@@ -34,6 +34,8 @@ public class Main {
         Conta conta2 = new ContaPoupanca(cliente2);
         Conta conta3 = new ContaPoupanca(cliente3);
         Conta conta4 = new ContaPoupanca(cliente3);
+        Conta conta5 = new ContaCorrente(cliente3);
+
 
         //ContaService
         ContaService contaService1 = new ContaService(banco);
@@ -41,6 +43,7 @@ public class Main {
         contaService1.criaConta(conta2.getCliente().getCPF(), conta2);
         contaService1.criaConta(conta3.getCliente().getCPF(), conta3);
         contaService1.criaConta(conta3.getCliente().getCPF(), conta4);
+        contaService1.criaConta(conta3.getCliente().getCPF(), conta5);
 
         bancoService.mostrarContasEClientes();
 
@@ -51,6 +54,7 @@ public class Main {
         contaService1.depositar(100, conta2);
         contaService1.transferir(conta1, 200, conta2);
 
+        System.out.println("\n\nAtualizando cliente...");
         if (clienteService.atualizaCliente("00000000000",
                 new Cliente("00000000000", "Ramon", "Ramon.login", "Ramon@gmail.com"))){
             System.out.println("Cliente atualizado com sucesso!");
@@ -67,10 +71,16 @@ public class Main {
         bancoService.excluirConta(conta3.getNumero());
         bancoService.mostrarContasEClientes();
 
-        //Classe apenas consulta
+
+
+        //Classe de consulta
         ConsultaService consultaService = new ConsultaService(bancoService);
         consultaService.clientesOrdenadoPorCPF();
-        consultaService.clientesOrdenadoPornome();
+        consultaService.clientesOrdenadosPornome();
+        consultaService.clientesOrdenadosPorSaldo();
+        consultaService.exibirContasPorCPF();
+        System.out.println(consultaService.buscaClientePorNome(cliente1.getNome()));
+
 
     }
 }

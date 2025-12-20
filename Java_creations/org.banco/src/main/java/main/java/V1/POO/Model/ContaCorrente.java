@@ -4,7 +4,7 @@ public class ContaCorrente extends Conta {
 
 
     public ContaCorrente(Cliente cliente) {
-        super(cliente);  // chama construtor da classe pai (Conta)
+        super(cliente);
         cliente.setConta(this); // vincula cliente à conta corrente
     }
 

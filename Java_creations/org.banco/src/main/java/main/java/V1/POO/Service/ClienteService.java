@@ -16,10 +16,12 @@ public class ClienteService {
  public void criaCliente(Cliente cliente){
             banco.addCliente(cliente);
  }
-
     public boolean atualizaCliente(String cpf, Cliente novoCliente) {
         if (cpf != null && banco.getClientesPorCpf().containsKey(cpf)) {
+            Cliente clienteAntigo = banco.getClientesPorCpf().get(cpf);
+            novoCliente.setConta(clienteAntigo.getConta());
             banco.getClientesPorCpf().put(cpf, novoCliente);
+
             return true;
         }
         return false;
@@ -33,7 +35,7 @@ public class ClienteService {
         return cliente;
     }
 
-    //Método auxiliar que trata getClientePorCpf
+    //Méttodo auxiliar que trata getClientePorCpf
     public Cliente safeGetCliente(String cpf) {
         try {
             return this.getClientePorCpf(cpf);

@@ -7,13 +7,13 @@ import java.util.*;
 
 public class Banco {
     private String nome;
-    private List<Conta> contas;
+//    private List<Conta> contas;
     private Map<String, Cliente> clientesPorCpf;
     private Map<String, List<Conta>> contasPorCpf;
 
     public Banco(String nome) {
         this.nome = nome;
-        this.contas = new ArrayList<>();
+//        this.contas = new ArrayList<>();
         this.clientesPorCpf = new HashMap<>();
         this.contasPorCpf = new HashMap<>();
     }
@@ -42,12 +42,11 @@ public class Banco {
             throw new InvalidContaException("Cliente com CPF " + cpf + " não encontrado.");
         }
         contasPorCpf.computeIfAbsent(cpf, k -> new ArrayList<>()).add(((Conta) conta));
-        contas.add(((Conta) conta));
+//        contas.add(((Conta) conta));
         System.out.println("Conta adicionada para cliente: " + clientesPorCpf.get(cpf).getNome());
     }
 
     //Retornam objetos
-
     public List<Conta> listarContasPorCliente(String cpf) {
         return contasPorCpf.getOrDefault(cpf, Collections.emptyList());
     }
@@ -66,7 +65,7 @@ public class Banco {
         for (List<Conta> lista : contasPorCpf.values()) {
             lista.removeIf(c -> c.getNumero() == numeroConta);
         }
-        contas.removeIf(c -> c.getNumero() == numeroConta);
+//        contas.removeIf(c -> c.getNumero() == numeroConta);
         System.out.println("Conta de número -> " + numeroConta + " foi excluída com sucesso");
     }
 }
