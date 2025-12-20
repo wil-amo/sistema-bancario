@@ -1,99 +1,66 @@
-# 💳 Sistema Bancário em Java V1 - Em contrução
+# 🏦 Protótipo de Sistema Bancário – Java POO
 
-[//]: # ()
-[//]: # (Uma aplicação simples com interface gráfica que simula operações bancárias reais: cadastro, login, depósito, saque e transferência.)
+Este repositório apresenta um **Protótipo de Sistema Bancário**, desenvolvido como exercício prático de **Programação Orientada a Objetos (POO)** e boas práticas de código.
 
-[//]: # (Feita para praticar boas práticas, praticar o core da linguagem Java e aplicar conceitos como persistência em .txt, criptografia com SHA-256 e lógica sem frameworks.)
+O projeto demonstra domínio dos principais conceitos de POO e se inspira em princípios de **SOLID** e boas práticas de **Clean Code**.
 
-[//]: # ()
-[//]: # (## 🚀 Funcionalidades)
 
-[//]: # ()
-[//]: # (- Cadastro de clientes com CPF, nome, login, senha e e-mail)
 
-[//]: # (- Login com verificação de senha e código de segurança)
+---
 
-[//]: # (- Depósito, saque e transferência entre contas)
+## 📌 Versões
 
-[//]: # (- Interface gráfica com `JOptionPane`)
+### ✅ V1 – Implementação de POO
+Nesta versão, o sistema cobre os pilares da POO e aplica recursos importantes da linguagem Java:
 
-[//]: # (- Registro de logins e operações em arquivos)
+- **Encapsulamento** → Atributos privados e acesso controlado via getters/setters.
+- **Herança** → Para reutilização de código.
+- **Polimorfismo** → Métodos sobrescritos e comportamento dinâmico.
+- **Abstração** → Uso de **classe abstrata** para definir contrato comun.
+- **Interfaces** → Definição de regras implementadas por diferentes classes.
+- **Tratamento de exceções** → Uso de `try/catch` e pacote de Exception.
+- **Coleções Java** → Gerenciamento de contas e clientes com listas.
+- **Organização em pacotes** → Modularidade e separação de responsabilidades.
 
-[//]: # (- Geração de logs de sistema e erros)
+#### 🔑 Princípios SOLID em meu projeto
+- **SRP (Single Responsibility Principle)**: a classe Conta só gerencia operações da conta, sem misturar lógica de cliente.
+- **OCP (Open/Closed Principle)**: você pode criar novas contas (ContaCorrente, ContaPoupanca) herdando de Conta sem alterar código existente.
+- **LSP (Liskov Substitution Principle)**: qualquer classe filha de Conta pode substituir a classe base sem quebrar o sistema.
+- **ISP (Interface Segregation Principle)**: (ex: Iconta), elas mantêm contratos enxutos.
+- **DIP (Dependency Inversion Principle)**: quando serviços dependem de abstrações (interfaces) em vez de classes concretas.
 
-[//]: # (- Armazenamento de dados em arquivos `.txt`)
 
-[//]: # ()
-[//]: # (<img width="481" height="225" alt="image" src="https://github.com/user-attachments/assets/5befbb5d-33ba-44a6-b995-10ab205ecae7" />)
+#### ✨ Clean Code
+- Nomes claros e descritivos.
+- Código modular e reutilizável.
+- Estrutura organizada em pacotes.
+- Comentários apenas quando necessário (autoexplicativo).
 
-[//]: # (<img width="481" height="136" alt="image" src="https://github.com/user-attachments/assets/d6b9fbfc-d327-4d09-9bb9-6814da0372bd" />)
+Funcionalidades:
+- Criar contas bancárias.
+- Associar clientes às contas.
+- Realizar depósitos e saques.
+- Transferir valores entre contas.
+- Exibir saldo e informações.
+- Pesquisar dados de clientes e contas.
 
-[//]: # (<img width="481" height="34" alt="image" src="https://github.com/user-attachments/assets/ada7e924-bb24-472c-86a5-269bd7b4ae0b" />)
+---
 
-[//]: # (<img width="481" height="135" alt="image" src="https://github.com/user-attachments/assets/a5ef4292-306c-49e7-a6ed-460958163a7e" />)
+### 🚧 V2 – Em Construção
+A nova versão está em desenvolvimento e terá:
+- Persistência em banco de dados.
+- Autenticação de usuários.
+- Expansão das funcionalidades bancárias.
 
-[//]: # (<img width="481" height="144" alt="image" src="https://github.com/user-attachments/assets/85b83fb8-39f8-4349-b191-24461e9fc4e9" />)
+---
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (## 🛠️ Como executar)
+## 🛠️ Tecnologias
+- **Java** (versão 8 ou superior)
+- Paradigma de **Programação Orientada a Objetos**
+- Inspiração em princípios de **SOLID** e **Clean Code**
+---
 
-[//]: # ()
-[//]: # (1. Clone o repositório:)
-
-[//]: # (   1.1 - git clone https://github.com/wil-amo/sistema-bancario.git)
-
-[//]: # (   1.2 Abra o projeto em uma IDE compatível com Maven &#40;como IntelliJ IDEA ou Eclipse&#41;)
-
-[//]: # (   1.3 Compile e execute a classe Main.java)
-
-[//]: # ()
-[//]: # ()
-[//]: # (2. Pré-requisitos:)
-
-[//]: # (- Java 8 ou superior instalado)
-
-[//]: # (- Maven instalado e configurado &#40;mvn clean install&#41;)
-
-[//]: # (- Conexão com a internet &#40;para envio de e-mails&#41;)
-
-[//]: # ()
-[//]: # ()
-[//]: # (  )
-[//]: # (3. Configuração de envio de e-mail:)
-
-[//]: # (- É necessário configurar um e-mail válido e uma senha de aplicativo &#40;como no Gmail&#41;)
-
-[//]: # (- Essas credenciais são usadas para enviar códigos de verificação por e-mail)
-
-[//]: # ()
-[//]: # (  Exemplo de configuração no código na classe EmailUtil.java)
-
-[//]: # (- String emailRemetente = "seuemail@gmail.com";)
-
-[//]: # (- String senhaApp = "sua_senha_de_aplicativo";)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (4. Arquivos gerados automaticamente:)
-
-[//]: # (- Clientes-criados.txt: lista de clientes cadastrados)
-
-[//]: # (- Logins-registrados.txt: histórico de logins)
-
-[//]: # (- Registro-logins.txt: sessões iniciadas)
-
-[//]: # (- app-log.txt: log de erros e eventos)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (🤝 Contribuição)
-
-[//]: # ()
-[//]: # (Contribuições são bem-vindas!)
-
-[//]: # (Sinta-se à vontade para abrir issues ou sugerir melhorias )
-
+## ▶️ Como Executar
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/wil-amo/sistema-bancario.git
