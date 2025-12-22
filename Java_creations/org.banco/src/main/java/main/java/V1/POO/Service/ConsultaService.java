@@ -77,4 +77,16 @@ public class ConsultaService {
                 .map(s-> "Nome:" + s.getNome()+" |Conta:"+ s.getConta().getNumero()+ " |Saldo:"+s.getConta().getSaldo()).toList();
         return nomeCliente.isEmpty() ? null : nomeCliente;
     }
+
+    public List<String> clientesSemConta() {
+        List<String> resultado = bancoService.getClientesPorCpf().values().stream()
+                .filter(c -> c.getConta() == null)
+                .sorted(Comparator.comparing(Cliente::getNome))
+                .map(c -> String.format("Cliente: %s | CPF: %s | Email: %s", c.getNome(), c.getCPF(), c.getEmail()))
+                .toList();
+
+        System.out.println("\nClientes sem conta:");
+        resultado.forEach(System.out::println);
+        return resultado;
+    }
 }

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="✨ feat: adiciona métodos de consulta&#10;&#10;- buscaClientePorNome&#10;- exibirContasPorCPF&#10;- clientesOrdenadosPorSaldo">
+    <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="📖 docs: adiciona README com descrição do protótipo bancário em Java POO-V1, exemplos de SOLID e Clean Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +68,7 @@
       <recent name="main.java.V2.JDBC" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.model.Main" />
       <module name="org-com-banco" />
@@ -258,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766225706288</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="📖 docs: adiciona README com descrição do protótipo bancário em Java POO-V1, exemplos de SOLID e Clean Code">
+      <option name="closed" value="true" />
+      <created>1766253634425</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1766253634425</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,7 +300,8 @@
     <MESSAGE value="♻️ Refatoração da Arquitetura do Projeto: Classes e Métodos - Parte 2" />
     <MESSAGE value="✨ feat: adiciona métodos de consulta&#10;clientesOrdenadoPorCPF e clientesOrdenadoPorNome" />
     <MESSAGE value="✨ feat: adiciona métodos de consulta&#10;&#10;- buscaClientePorNome&#10;- exibirContasPorCPF&#10;- clientesOrdenadosPorSaldo" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: adiciona métodos de consulta&#10;&#10;- buscaClientePorNome&#10;- exibirContasPorCPF&#10;- clientesOrdenadosPorSaldo" />
+    <MESSAGE value=" docs: adiciona README com descrição do protótipo bancário em Java POO-V1, exemplos de SOLID e Clean Code" />
+    <option name="LAST_COMMIT_MESSAGE" value=" docs: adiciona README com descrição do protótipo bancário em Java POO-V1, exemplos de SOLID e Clean Code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

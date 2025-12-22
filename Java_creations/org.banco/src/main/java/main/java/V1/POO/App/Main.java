@@ -80,7 +80,7 @@ public class Main {
         consultaService.clientesOrdenadosPorSaldo();
         consultaService.exibirContasPorCPF();
         System.out.println(consultaService.buscaClientePorNome(cliente1.getNome()));
-
+        consultaService.clientesSemConta();
 
     }
 }

@@ -2,7 +2,7 @@
 
 Este repositório apresenta um **Protótipo de Sistema Bancário**, desenvolvido como exercício prático de **Programação Orientada a Objetos (POO)** e boas práticas de código.
 
-O projeto demonstra domínio dos principais conceitos de POO e se inspira em princípios de **SOLID** e boas práticas de **Clean Code**.
+O projeto demonstra conceitos de POO e se inspira em princípios de **SOLID** e boas práticas de **Clean Code**.
 
 
 
@@ -11,32 +11,10 @@ O projeto demonstra domínio dos principais conceitos de POO e se inspira em pri
 ## 📌 Versões
 
 ### ✅ V1 – Implementação de POO
-Nesta versão, o sistema cobre os pilares da POO e aplica recursos importantes da linguagem Java:
-
-- **Encapsulamento** → Atributos privados e acesso controlado via getters/setters.
-- **Herança** → Para reutilização de código.
-- **Polimorfismo** → Métodos sobrescritos e comportamento dinâmico.
-- **Abstração** → Uso de **classe abstrata** para definir contrato comun.
-- **Interfaces** → Definição de regras implementadas por diferentes classes.
-- **Tratamento de exceções** → Uso de `try/catch` e pacote de Exception.
-- **Coleções Java** → Gerenciamento de contas e clientes com listas.
-- **Organização em pacotes** → Modularidade e separação de responsabilidades.
-
-#### 🔑 Princípios SOLID em meu projeto
-- **SRP (Single Responsibility Principle)**: a classe Conta só gerencia operações da conta, sem misturar lógica de cliente.
-- **OCP (Open/Closed Principle)**: você pode criar novas contas (ContaCorrente, ContaPoupanca) herdando de Conta sem alterar código existente.
-- **LSP (Liskov Substitution Principle)**: qualquer classe filha de Conta pode substituir a classe base sem quebrar o sistema.
-- **ISP (Interface Segregation Principle)**: (ex: Iconta), elas mantêm contratos enxutos.
-- **DIP (Dependency Inversion Principle)**: quando serviços dependem de abstrações (interfaces) em vez de classes concretas.
+**Conceitos aplicados:** POO (encapsulamento, herança, polimorfismo, abstração), interfaces, exceções, collections e organização por pacotes.
 
 
-#### ✨ Clean Code
-- Nomes claros e descritivos.
-- Código modular e reutilizável.
-- Estrutura organizada em pacotes.
-- Comentários apenas quando necessário (autoexplicativo).
-
-Funcionalidades:
+### Operações
 - Criar contas bancárias.
 - Associar clientes às contas.
 - Realizar depósitos e saques.
@@ -44,23 +22,48 @@ Funcionalidades:
 - Exibir saldo e informações.
 - Pesquisar dados de clientes e contas.
 
+### Consultas com Stream API
+Implementadas na classe `ConsultaService`:
+- Busca de contas por critérios
+- Ordenação de contas por saldo
+- Listagem de contas filtradas
+- Top N contas com maior saldo
+- Uso de `Comparator`, `filter`, `sorted`, `limit`, `collect`
+
 ---
 
-### 🚧 V2 – Em Construção
-A nova versão está em desenvolvimento e terá:
-- Persistência em banco de dados.
-- Autenticação de usuários.
-- Expansão das funcionalidades bancárias.
+
+## 🧪 Exemplo de Uso
+
+O fluxo principal é executado pela classe `Main`, que:
+1. Cria o banco
+2. Cria clientes
+3. Cria e vincula contas
+4. Executa operações bancárias
+5. Realiza consultas usando Stream API
+6. Exibe resultados no console
 
 ---
 
-## 🛠️ Tecnologias
-- **Java** (versão 8 ou superior)
-- Paradigma de **Programação Orientada a Objetos**
-- Inspiração em princípios de **SOLID** e **Clean Code**
+## 🚧 Limitações Atuais
+
+- Persistência apenas em memória
+- Não utiliza banco de dados
+- Não possui testes automatizados
+- Interface apenas via console
+
 ---
 
-## ▶️ Como Executar
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/wil-amo/sistema-bancario.git
+## 🔮 Próximos Passos (Planejados)
+
+- V2: Persistência com JDBC
+- V3: Migração para Spring Boot + JPA
+- Testes unitários
+- Camada de API REST
+
+---
+
+## 📚 Observações
+
+Este projeto tem foco **educacional** e foi desenvolvido para consolidar fundamentos
+sem uso de frameworks e persistência em banco de dados.
