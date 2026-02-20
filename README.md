@@ -1,69 +1,94 @@
-# 🏦 Protótipo de Sistema Bancário – Java POO
+# Sistema Bancário – Java (POO → JDBC)
 
-Este repositório apresenta um **Protótipo de Sistema Bancário**, desenvolvido como exercício prático de **Programação Orientada a Objetos (POO)** e boas práticas de código.
-
-O projeto demonstra conceitos de POO e se inspira em princípios de **SOLID** e boas práticas de **Clean Code**.
-
-
-
+Projeto desenvolvido com foco em evolução arquitetural em Java, partindo de uma aplicação em memória (V1) até persistência real com JDBC e SQLite (V2).
+O objetivo foi consolidar fundamentos essenciais de backend antes da utilização de frameworks.
 ---
 
 ## 📌 Versões
 
-### ✅ V1 – Implementação de POO
-**Conceitos aplicados:** POO (encapsulamento, herança, polimorfismo, abstração), interfaces, exceções, collections e organização por pacotes.
+### 🔹 V1 – Aplicação em Memória (POO)
+
+* Implementação orientada a objetos com Encapsulamento
+* Herança e polimorfismo
+* Separação em camadas (Model / Service)
+* Exceções customizadas
+* Collections
+* Stream API para consultas
 
 
-### Operações
-- Criar contas bancárias.
-- Associar clientes às contas.
-- Realizar depósitos e saques.
-- Transferir valores entre contas.
-- Exibir saldo e informações.
-- Pesquisar dados de clientes e contas.
+### Funcionalidades:
 
-### Consultas com Stream API
-Implementadas na classe `ConsultaService`:
-- Busca de contas por critérios
-- Ordenação de contas por saldo
-- Listagem de contas filtradas
-- Top N contas com maior saldo
-- Uso de `Comparator`, `filter`, `sorted`, `limit`, `collect`
-
----
+* Cadastro de clientes
+* Cadastro de contas
+* Depósito, saque e transferência
+* Consultas utilizando Stream API
+* Ordenação por saldo
+* Filtros personalizados
+* Top N contas
 
 
-## 🧪 Exemplo de Uso
-
-O fluxo principal é executado pela classe `Main`, que:
-1. Cria o banco
-2. Cria clientes
-3. Cria e vincula contas
-4. Executa operações bancárias
-5. Realiza consultas usando Stream API
-6. Exibe resultados no console
+**Limitação: dados mantidos apenas em memória.**
 
 ---
+### 🔹 V2 – Persistência com JDBC + MySQL
+---
+**Evolução do projeto para incluir persistência real de dados.**
 
-## 🚧 Limitações Atuais
+* Conceitos aplicados:
+* JDBC (DriverManager, Connection, PreparedStatement, ResultSet)
+* MySQL como banco local
+* Separação entre Repository e Service
+* Uso de Optional
+* try-with-resources
+* Organização em camadas
 
-- Persistência apenas em memória
-- Não utiliza banco de dados
-- Não possui testes automatizados
-- Interface apenas via console
 
+### Funcionalidades:
+
+* CRUD de Cliente
+* CRUD de Conta
+* Persistência em banco
+* Transferência entre contas
+* Validação de regras de negócio
+---
+## 🏗️ Arquitetura
+---
+### O projeto foi estruturado em:
+- model → entidades do domínio
+- repository → acesso a dados (SQL)
+- service → regras de negócio
+- config → configuração de conexão
+- app → ponto de entrada
+
+#### Essa divisão evita acoplamento entre regra de negócio e persistência.
 ---
 
-## 🔮 Próximos Passos (Planejados)
-
-- V2: Persistência com JDBC
-- V3: Migração para Spring Boot + JPA
-- Testes unitários
-- Camada de API REST
-
+## 🗄️ Banco de Dados
 ---
+**MySQL**
 
-## 📚 Observações
+### Tabelas principais:
 
-Este projeto tem foco **educacional** e foi desenvolvido para consolidar fundamentos
-sem uso de frameworks e persistência em banco de dados.
+* Cliente
+* Conta
+
+### Relacionamento:
+
+* Conta vinculada a Cliente
+#### Implementação de trigger para reforçar regras no nível do banco.
+
+## 📚 Tecnologias
+
+- Java 17+
+- JDBC
+- MySQL
+- Git
+
+## 🚀 Próximos Passos
+
+* Implementação de transações explícitas
+* Testes unitários
+* API REST com Spring Boot
+* JPA / Hibernate
+ 
+Projeto com foco em aprendizado prático e consolidação de fundamentos de backend Java.
