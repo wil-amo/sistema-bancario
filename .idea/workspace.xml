@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01bd4030-8fab-45b7-b143-eb2685695fbc" name="Changes" comment="📖 docs: adiciona README com descrição do protótipo bancário em Java POO-V1, exemplos de SOLID e Clean Code">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/App/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Service/ConsultaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V1/POO/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/App/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/DB/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Config/MySQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/DB/interfaces/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Config/interfaces/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/DAO/ClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/DbHealthCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/DbHealthCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/exception/Exception.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/logger/LoggerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Infra/logger/LoggerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Banco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/interfaces/Iconta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_creations/org.banco/src/main/java/main/java/V2/JDBC/Model/interfaces/Iconta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +63,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.main.java.App.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.main.java.V1.POO.App.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.java.V2.JDBC.App.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.main.java.main.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -110,9 +123,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main.java.V1.POO.App.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.main.java.V2.JDBC.App.Main" />
+        <item itemvalue="Application.main.java.V1.POO.App.Main" />
       </list>
     </recent_temporary>
   </component>

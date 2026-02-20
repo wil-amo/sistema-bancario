@@ -1,7 +1,6 @@
 package main.java.V1.POO.Model;
 
 import main.java.V1.POO.Exception.DominioException;
-import main.java.V1.POO.Model.interfaces.Iconta;
 
 import java.util.Objects;
 
@@ -30,6 +29,7 @@ public class Cliente implements Comparable<Cliente> {
     public String getEmail() {
         return email;
     }
+
 
 
     public Cliente(String CPF, String nome, String login, String email) {

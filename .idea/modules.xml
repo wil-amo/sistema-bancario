@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java_creations/org.banco/org-com-banco.iml" filepath="$PROJECT_DIR$/Java_creations/org.banco/org-com-banco.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sistema-bancario.iml" filepath="$PROJECT_DIR$/.idea/sistema-bancario.iml" />
     </modules>
   </component>

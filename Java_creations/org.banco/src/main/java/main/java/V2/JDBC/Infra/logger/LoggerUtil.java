@@ -13,11 +13,16 @@ public class LoggerUtil {
         return logger;
     }
 
-    public static void logSevere(String mensagem, Throwable erro) {
+    public static void getLogError(String mensagem, Throwable erro) {
         logger.log(Level.SEVERE, mensagem, erro);
     }
 
-    public static void logInfo(String mensagem) {
+    public static void getLogInfo(String mensagem) {
         logger.log(Level.INFO, mensagem);
     }
+
+    public static void getLogWarn(String mensagem) {
+    logger.log(Level.WARNING, mensagem);
+    }
+
 }

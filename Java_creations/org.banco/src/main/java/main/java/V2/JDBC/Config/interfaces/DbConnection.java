@@ -1,4 +1,4 @@
-package main.java.V2.JDBC.DB.interfaces;
+package main.java.V2.JDBC.Config.interfaces;
 
 import java.sql.Connection;
 import java.sql.SQLException;

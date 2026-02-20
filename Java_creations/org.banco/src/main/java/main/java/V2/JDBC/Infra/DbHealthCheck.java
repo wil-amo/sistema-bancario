@@ -1,24 +1,24 @@
 package main.java.V2.JDBC.Infra;
 
-import main.java.V2.JDBC.DB.MySQLConnection;
-import main.java.V2.JDBC.DB.interfaces.DbConnection;
+import main.java.V2.JDBC.Config.interfaces.DbConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DbHealthCheck {
 
-    public static void healthCheckMySql() {
-        DbConnection db = new MySQLConnection();
+    public static void check(DbConnection db) {
         try (Connection connection = db.getConnection()) {
-            if (connection != null && !connection.isClosed()) {
-                System.out.println("Conexão up!");
-            } else {
-                System.out.println("Não foi possível conectar ao db.");
+
+            if (connection == null || connection.isClosed()) {
+                throw new SQLException("Conexão retornada como nula ou fechada.");
             }
+
+            System.out.println("✅ Banco de Dados: UP");
+
         } catch (SQLException e) {
-            System.out.println("Erro ao conectar ao db -> sistema-bancario: " + e.getMessage());
-            throw new RuntimeException(e);
+            throw new RuntimeException("Falha crítica no Banco de Dados: " + e.getMessage(), e);
+            //implementar log
         }
     }
 }
