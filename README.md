@@ -1,94 +1,250 @@
-# Sistema Bancário – Java (POO → JDBC)
+# Sistema Bancário — Evolução Arquitetural em Java
 
-Projeto desenvolvido com foco em evolução arquitetural em Java, partindo de uma aplicação em memória (V1) até persistência real com JDBC e SQLite (V2).
-O objetivo foi consolidar fundamentos essenciais de backend antes da utilização de frameworks.
+```text
+🟢 V1 → Java POO (Em memória)
+          │
+          ▼
+🟡 V2 → JDBC + MySQL
+          │
+          ▼
+🔵 V3 → Spring Boot + Spring Data JPA / Hibernate
+```
+
+> Projeto desenvolvido para simular a evolução de uma aplicação backend Java utilizada em ambientes corporativos, demonstrando a transição entre diferentes abordagens de persistência, arquitetura e organização de código.
+
+O objetivo deste repositório é consolidar conhecimentos em desenvolvimento backend através da evolução progressiva da mesma aplicação, aproximando cada versão das tecnologias e padrões utilizados no mercado.
+
 ---
 
-## 📌 Versões
+# 🎯 Objetivos
 
-### 🔹 V1 – Aplicação em Memória (POO)
+* Consolidar fundamentos de Java e Programação Orientada a Objetos
+* Evoluir a persistência de dados utilizando JDBC e posteriormente Spring Data JPA
+* Aplicar arquitetura em camadas
+* Trabalhar com regras de negócio desacopladas
+* Integrar Java com banco de dados relacional
+* Demonstrar evolução arquitetural de forma incremental
 
-* Implementação orientada a objetos com Encapsulamento
-* Herança e polimorfismo
-* Separação em camadas (Model / Service)
-* Exceções customizadas
+---
+
+# 🚀 Evolução do Projeto
+
+## 🟢 V1 — Java Orientado a Objetos (Em Memória)
+
+Primeira versão desenvolvida para consolidar os fundamentos da linguagem Java.
+
+### Conceitos aplicados
+
+* Encapsulamento
+* Herança
+* Polimorfismo
+* Exceptions customizadas
 * Collections
-* Stream API para consultas
+* Stream API
+* Separação entre Model e Service
 
+### Funcionalidades
 
-### Funcionalidades:
-
-* Cadastro de clientes
-* Cadastro de contas
-* Depósito, saque e transferência
+* Cadastro de Clientes
+* Cadastro de Contas
+* Depósito
+* Saque
+* Transferência
 * Consultas utilizando Stream API
 * Ordenação por saldo
-* Filtros personalizados
-* Top N contas
+* Top N de contas
 
-
-**Limitação: dados mantidos apenas em memória.**
+> Persistência realizada exclusivamente em memória.
 
 ---
-### 🔹 V2 – Persistência com JDBC + MySQL
----
-**Evolução do projeto para incluir persistência real de dados.**
 
-* Conceitos aplicados:
-* JDBC (DriverManager, Connection, PreparedStatement, ResultSet)
-* MySQL como banco local
-* Separação entre Repository e Service
-* Uso de Optional
-* try-with-resources
-* Organização em camadas
+## 🟡 V2 — JDBC + MySQL
 
+Evolução da aplicação para persistência em banco de dados utilizando JDBC.
 
-### Funcionalidades:
+### Tecnologias
 
-* CRUD de Cliente
-* CRUD de Conta
-* Persistência em banco
-* Transferência entre contas
+* Java
+* JDBC
+* MySQL
+* Maven
+
+### Conceitos aplicados
+
+* DriverManager
+* Connection
+* PreparedStatement
+* ResultSet
+* Repository Pattern
+* Service Layer
+* Optional
+* Try-With-Resources
+* Controle Transacional (Commit / Rollback)
+
+### Funcionalidades
+
+* CRUD de Clientes
+* CRUD de Contas
+* Persistência em banco de dados
+* Transferências entre contas
 * Validação de regras de negócio
----
-## 🏗️ Arquitetura
----
-### O projeto foi estruturado em:
-- model → entidades do domínio
-- repository → acesso a dados (SQL)
-- service → regras de negócio
-- config → configuração de conexão
-- app → ponto de entrada
+* Tratamento de exceções
 
-#### Essa divisão evita acoplamento entre regra de negócio e persistência.
+### Regras implementadas no banco
+
+#### Trigger — Inativação automática de contas
+
+Quando um cliente é marcado como inativo, todas as contas vinculadas também são automaticamente inativadas.
+
+**Objetivo**
+
+* Garantir integridade dos dados
+* Centralizar regras críticas no banco
+* Evitar inconsistências entre Cliente e Conta
+
+#### Trigger — Geração automática do número da conta
+
+Responsável por gerar automaticamente o próximo número disponível para novas contas.
+
+**Benefícios**
+
+* Evita duplicidade
+* Remove responsabilidade da aplicação
+* Mantém consistência dos dados
+
 ---
 
-## 🗄️ Banco de Dados
----
-**MySQL**
+## 🔵 V3 — Spring Boot + Spring Data JPA
 
-### Tabelas principais:
+Terceira evolução do projeto aproximando a aplicação de uma arquitetura utilizada em aplicações Java corporativas.
+
+### Tecnologias
+
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* PostgreSQL
+* Maven
+
+### Evoluções implementadas
+
+* Mapeamento de entidades utilizando JPA
+* Repository substituindo DAOs JDBC
+* Persistência através do Hibernate
+* Organização em camadas (Controller, Service, Repository e Model)
+* Estrutura preparada para APIs REST
+* Externalização das configurações da aplicação
+* Collection do Postman para testes dos endpoints
+
+---
+
+# 📊 Comparativo das versões
+
+| Característica | 🟢 V1           | 🟡 V2                | 🔵 V3                             |
+| -------------- | --------------- | -------------------- | --------------------------------- |
+| Persistência   | Memória         | JDBC                 | Spring Data JPA                   |
+| Banco de Dados | —               | MySQL                | PostgreSQL                        |
+| SQL            | Não             | Sim                  | JPA/Hibernate                     |
+| Arquitetura    | Model / Service | Repository / Service | Controller / Service / Repository |
+| API REST       | Não             | Não                  | Sim                               |
+| ORM            | Não             | Não                  | Hibernate                         |
+
+---
+
+# 🏗️ Arquitetura
+
+```text
+Controller
+      │
+      ▼
+Service
+      │
+      ▼
+Repository
+      │
+      ▼
+JPA / Hibernate
+      │
+      ▼
+PostgreSQL
+```
+
+O projeto segue uma arquitetura em camadas para promover baixo acoplamento, separação de responsabilidades e facilitar manutenção e evolução.
+
+---
+
+# 💾 Banco de Dados
+
+**MySQL (V2)**
 
 * Cliente
 * Conta
 
-### Relacionamento:
+**PostgreSQL (V3)**
 
-* Conta vinculada a Cliente
-#### Implementação de trigger para reforçar regras no nível do banco.
+* Persistência utilizando Spring Data JPA
 
-## 📚 Tecnologias
+As regras de negócio críticas foram distribuídas entre aplicação e banco de dados, utilizando triggers quando apropriado.
 
-- Java 17+
-- JDBC
-- MySQL
-- Git
+---
 
-## 🚀 Próximos Passos
+# 🛠️ Tecnologias Utilizadas
 
-* Implementação de transações explícitas
-* Testes unitários
-* API REST com Spring Boot
-* JPA / Hibernate
- 
-Projeto com foco em aprendizado prático e consolidação de fundamentos de backend Java.
+* Java
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* JDBC
+* SQL
+* MySQL
+* PostgreSQL
+* Maven
+* Git
+* Postman
+
+---
+
+# 📁 Recursos do Projeto
+
+✔ Collection do Postman contendo os principais endpoints da API.
+
+✔ Scripts SQL para criação do banco de dados.
+
+✔ Triggers utilizadas na versão JDBC.
+
+✔ Configuração da aplicação externalizada através do `application.properties`.
+
+---
+
+# 📚 Principais Aprendizados
+
+Durante a evolução do projeto foram aplicados conceitos importantes utilizados no desenvolvimento backend Java:
+
+* Programação Orientada a Objetos
+* Arquitetura em Camadas
+* Repository Pattern
+* Persistência com JDBC
+* Spring Data JPA
+* Hibernate
+* SQL
+* Controle Transacional
+* Triggers
+* APIs REST
+* Organização de projetos Maven
+
+---
+
+# 🔭 Próximas Evoluções
+
+* ✅ Testes unitários com JUnit
+* ✅ Documentação da API com Swagger / OpenAPI
+* ✅ Docker para ambiente de desenvolvimento
+* ✅ Spring Security com autenticação JWT
+* ✅ Tratamento global de exceções (`@ControllerAdvice`)
+* ✅ Validação de dados com Bean Validation
+* ✅ Integração Contínua (GitHub Actions)
+* ✅ Cobertura de testes com JaCoCo
+
+---
+
+> **Este projeto representa minha evolução em desenvolvimento backend Java, demonstrando a transição entre diferentes abordagens de persistência e arquitetura utilizadas no mercado.**
