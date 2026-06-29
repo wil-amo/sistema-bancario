@@ -1,8 +1,17 @@
 ### IntelliJ IDEA ###
 .idea/
+front-end/
 *.iml
 *.iws
 *.ipr
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+application-dev.properties
+application-prod.properties
 
 # Compiled class files
 *.class
@@ -40,6 +49,3 @@ bin/
 
 ### VS Code ###
 .vscode/
-
-### Mac OS ###
-.DS_Store
